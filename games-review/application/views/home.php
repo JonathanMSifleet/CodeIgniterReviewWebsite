@@ -26,27 +26,26 @@
 
 <div class="container">
     <div class="row">
-        <?php
-        foreach ($result as $row) {
-            // These classes onlywork if you attach Bootstrap.
-            //echo '<div class="card cardBodyWidth ' . $cssBodyClass . '">';
-            // This is presuming you have a column in your database table called ReviewImage.
-            echo '<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>';
-            $reviewTitle = $row->GameName;
-            echo $reviewTitle;
-            //echo'</div>';
-           // $thisImage = $row->ReviewImage;
-            // Look into the image properties library in CodeIgniter for more help on images: 
+		<?php
+		foreach ($result as $row) {
 
-        }
-        ?>
+			$reviewTitle = $row->GameName;
+			$gameBlurb = $row->GameBlurb;
+			$gameImage = $row->ReviewImage;
+			$gameImage = base_url() . "application/images/" . $gameImage;
+
+			echo <<<_END
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src='$gameImage' alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">$reviewTitle</h5>
+                <p class="card-text">$gameBlurb</p>
+                <a href="#" class="btn btn-primary" style="margin: auto;">Go to review</a>
+    </div>
+</div>
+_END;
+		}
+		?>
     </div>
 </div>
 </body>
