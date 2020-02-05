@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="application/css/MyStyle.css">
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -35,13 +38,13 @@
 			$gameImage = base_url() . "application/images/" . $gameImage;
 
 			echo <<<_END
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                 <img class="card-img-top" src='$gameImage' alt="Card image cap">
                 <div class="card-body">
                 <h5 class="card-title">$reviewTitle</h5>
                 <p class="card-text">$gameBlurb</p>
-                <a href="#" class="btn btn-primary" style="margin: auto;">Go to review</a>
     </div>
+    <a href="#" class="btn btn-primary">Go to review</a>
 </div>
 _END;
 		}
