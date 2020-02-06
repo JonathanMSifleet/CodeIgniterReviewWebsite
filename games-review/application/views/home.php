@@ -24,7 +24,8 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -37,7 +38,8 @@
                 <a class="nav-link" href="#">Link</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
                     Dropdown
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -60,26 +62,27 @@
 
 <div class="container">
     <div class="row">
-		<?php
-		foreach ($result as $row) {
+        <?php
+        foreach ($result as $row) {
 
-			$reviewTitle = $row->GameName;
-			$gameBlurb = $row->GameBlurb;
-			$gameImage = $row->ReviewImage;
-			$gameImage = base_url() . "application/images/" . $gameImage;
-
-			echo <<<_END
+            $reviewTitle = $row->GameName;
+            $gameBlurb = $row->GameBlurb;
+            $gameImage = $row->ReviewImage;
+            $gameImage = base_url() . "application/images/" . $gameImage;
+            $gameSlug = $row->slug;
+            $linkToReview = base_url() . 'review/' . $gameSlug;
+            echo <<<_END
                 <div class="card">
                 <img class="card-img-top" src='$gameImage' alt="Card image cap">
                 <div class="card-body">
                 <h5 class="card-title">$reviewTitle</h5>
                 <p class="card-text">$gameBlurb</p>
     </div>
-    <a href="#" class="btn btn-primary">Go to review</a>
+    <a href="$linkToReview" class="btn btn-primary">Go to review</a>
 </div>
 _END;
-		}
-		?>
+        }
+        ?>
     </div>
 </div>
 </body>
