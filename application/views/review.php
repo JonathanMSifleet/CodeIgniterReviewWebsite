@@ -18,4 +18,16 @@
 	<title>Add title</title>
 </head>
 
+<body>
+
+<?php
+
+//load review data:
+
+print_r($result);
+
+?>
+
+</body>
+
 </html>

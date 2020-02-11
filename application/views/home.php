@@ -67,7 +67,8 @@
 			$gameBlurb = $row->GameBlurb;
 			$gameImage = $row->ReviewImage;
 			$gameImage = base_url() . "application/images/" . $gameImage;
-
+			$gameSlug = $row->slug;
+			$reviewURL = base_url()."review/" . $gameSlug;
 			echo <<<_END
                 <div class="card">
                 <img class="card-img-top" src='$gameImage' alt="Card image cap">
@@ -75,7 +76,7 @@
                 <h5 class="card-title">$reviewTitle</h5>
                 <p class="card-text">$gameBlurb</p>
     </div>
-    <a href="#" class="btn btn-primary">Go to review</a>
+    <a href=$reviewURL class="btn btn-primary">Go to review</a>
 </div>
 _END;
 		}
