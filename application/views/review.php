@@ -24,7 +24,7 @@
 
 //load review data:
 
-print_r($result);
+
 
 ?>
 

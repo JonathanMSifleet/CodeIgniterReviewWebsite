@@ -68,16 +68,16 @@
 			$gameImage = $row->ReviewImage;
 			$gameImage = base_url() . "application/images/" . $gameImage;
 			$gameSlug = $row->slug;
-			$reviewURL = base_url()."review/" . $gameSlug;
+			$reviewURL = base_url()."index.php/review/" . $gameSlug;
 			echo <<<_END
                 <div class="card">
-                <img class="card-img-top" src='$gameImage' alt="Card image cap">
-                <div class="card-body">
-                <h5 class="card-title">$reviewTitle</h5>
-                <p class="card-text">$gameBlurb</p>
-    </div>
-    <a href=$reviewURL class="btn btn-primary">Go to review</a>
-</div>
+                	<img class="card-img-top" src='$gameImage' alt="Card image cap">
+                	<div class="card-body">
+                		<h5 class="card-title">$reviewTitle</h5>
+               			<p class="card-text">$gameBlurb</p>
+    				</div>
+    				<a href=$reviewURL class="btn btn-primary">Go to review</a>
+				</div>
 _END;
 		}
 		?>
