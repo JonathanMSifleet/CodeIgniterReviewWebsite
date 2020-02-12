@@ -9,7 +9,7 @@ class ViewReview extends CI_Model
 
 	}
 
-	public function GetMovieData() {
+	public function GetReviewData() {
 		// get slug:
 
 		$slug = basename();

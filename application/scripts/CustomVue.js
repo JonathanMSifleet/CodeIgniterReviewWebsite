@@ -1,10 +1,16 @@
-var app = new Vue({
-    // Add the id here.
-    el: '#',
-    data: {
-		// Create your data here.
-    },    
-    methods: {
-    //    Add your methods here.       
-    }
+var header = new Vue({
+	// Add the id here.
+	el: '#header',
+	data: {
+		heading: ''
+	},
+	created() {
+		this.generateHeading()
+	},
+	methods: {
+          generateHeading:function(){
+          	this.heading=''
+		  }
+    },
+
 });
