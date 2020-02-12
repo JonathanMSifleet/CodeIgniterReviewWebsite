@@ -68,7 +68,7 @@
 			$gameImage = $row->ReviewImage;
 			$gameImage = base_url() . "application/images/" . $gameImage;
 			$gameSlug = $row->slug;
-			$reviewURL = base_url()."index.php/review/" . $gameSlug;
+			$reviewURL = base_url()."review/" . $gameSlug;
 			echo <<<_END
                 <div class="card">
                 	<img class="card-img-top" src='$gameImage' alt="Card image cap">
