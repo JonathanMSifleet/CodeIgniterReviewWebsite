@@ -12,20 +12,25 @@ html * {
     width: 18rem;
     margin: 1% 1% 1% 1%;
 }
+
 .row {
     width: 100%;
     margin: 0 auto;
-	align: centre;
+    align: centre;
 }
 
 .container {
     margin-left: auto;
-	margin-right: auto;
-	align: centre;
+    margin-right: auto;
+    align: centre;
+}
+
+.container-fluid {
+    margin-top: 1%;
 }
 
 body {
-    width:100%;
+    width: 100%;
     padding-top: 3%;
-	margin: 0;
+    margin: 0;
 }

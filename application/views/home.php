@@ -18,9 +18,7 @@
     <title><?php echo $title ?></title>
 </head>
 
-<?php
-// Manipulate the body CSS colour here.
-?>
+<body>
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <span class="navbar-brand">1CKW50</span>
