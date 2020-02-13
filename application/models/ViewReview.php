@@ -9,12 +9,10 @@ class ViewReview extends CI_Model
 
 	}
 
-	public function GetReviewData() {
+	public function GetReviewData($slug) {
 		// get slug:
 
-		$slug = basename();
-
-		$query = $this->db->query("SELECT GameName, GameBlurb, GameReview, slug, ReviewImage FROM activereviews WHERE slug = '$slug'");
+		$query = $this->db->query("SELECT DISTINCT * FROM activereviews WHERE slug = '$slug' LIMIT 1");
 		return $query->result();
 
 	}
