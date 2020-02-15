@@ -1,36 +1,71 @@
 html * {
-    font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 .btn-primary {
-    margin: auto;
-    width: 60%;
-    margin-bottom: 7%;
+	margin: auto;
+	width: 60%;
+	margin-bottom: 7%;
 }
 
 .card {
-    width: 18rem;
-    margin: 1% 1% 1% 1%;
+	width: 18rem;
+}
+
+.backgroundContainer {
+	margin: 0.5% 0.5% 0.5% 0.5%;
+	padding: 1% 1% 1% 1%;
+	width: auto;
+	background-color: whitesmoke;
+	overflow: auto;
+	display: inline-block;
+	float: left;
+}
+
+.reviewData {
+	float: left;
+}
+
+#reviewImageContainer {
+	margin-left: 1%;
+}
+
+#gameBlurb {
+	clear: right;
+	width: auto;
+	display: block;
+}
+
+#reviewText {
+	float: left;
+	width: auto;
+	display: block;
 }
 
 .row {
-    width: 100%;
-    margin: 0 auto;
-    align: centre;
+	margin: 0 auto;
+	align: centre;
 }
 
 .container {
-    margin-left: auto;
-    margin-right: auto;
-    align: centre;
+	margin-left: auto;
+	margin-right: auto;
+	align: centre;
+}
+
+h1 {
+	padding-top: 1%;
+	width: 100vw;
+	text-align: center;
+}
+
+.reviewImage {
+	max-width: 20vw;
+	float: left;
 }
 
 .container-fluid {
-    margin-top: 1%;
-}
-
-body {
-    width: 100%;
-    padding-top: 3%;
-    margin: 0;
+	margin-top: 1vh;
+	background-color: white;
+	width: auto;
 }

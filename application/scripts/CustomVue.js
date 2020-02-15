@@ -8,9 +8,11 @@ var header = new Vue({
 		this.generateHeading()
 	},
 	methods: {
-          generateHeading:function(){
-          	this.heading=''
-		  }
-    },
-
+		generateHeading: function () {
+			this.heading = ''
+		},
+		getReviewName: function() {
+			$.get("http://localhost:82/")
+		}
+	}
 });
