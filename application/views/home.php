@@ -36,6 +36,13 @@
 			</li>
 		</ul>
 	</div>
+
+	<!--
+	<div class="my-2 my-lg-0">
+		<button class="btn btn-outline-success my-2 my-sm-0" type="button">Change theme</button>
+	</div>
+	-->
+	
 </nav>
 
 <body>
@@ -88,7 +95,5 @@ _END;
 </footer>
 
 </body>
-
-<!-- Load in your custom scripts -->
 
 </html>

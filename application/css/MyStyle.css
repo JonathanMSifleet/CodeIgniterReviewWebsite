@@ -1,3 +1,12 @@
+:root {
+	--body-dark: #212121;
+	--container-outer-dark: #404040;
+	--container-inner-dark: #606060;
+	--p-text-dark: #D3D3D3;
+	--box-shadow-dark: #808080;
+	--title-dark: whitesmoke;
+}
+
 html * {
 	font-family: 'Roboto', sans-serif;
 }
@@ -9,28 +18,28 @@ html * {
 
 .card {
 	width: 18rem;
-	background-color: #606060;
+	background-color: var(--container-inner-dark);
 }
 
 .card-title {
-	color: whitesmoke;
+	color: var(--title-dark);
 }
 
 .card-text {
-	color: #D3D3D3 !important;
+	color: var(--p-text-dark) !important;
 }
 
 .backgroundContainer {
 	margin: 0.5% 0.5% 0.5% 0.5%;
 	padding: 1% 1% 1% 1%;
 	width: auto;
-	background-color: #404040;
+	background-color: var(--container-outer-dark);
 	overflow: auto;
 	float: left;
 }
 
 .navbar {
-	background-color: #404040 !important;
+	background-color: var(--container-outer-dark) !important;
 	margin-top: 1%;
 	margin-left: 1%;
 	margin-right: 1%;
@@ -72,7 +81,7 @@ h1 {
 	padding-top: 1%;
 	width: 100vw;
 	text-align: center;
-	color: whitesmoke;
+	color: var(--title-dark);
 }
 
 .reviewImage {
@@ -86,24 +95,23 @@ h1 {
 
 .container-fluid {
 	margin-top: 1vh;
-	background-color: white;
 	width: auto;
-	background-color: #212121;
+	background-color: var(--body-dark);
 }
 
 body {
 	overflow-x: hidden;
-	background-color: #212121 !important;
+	background-color: var(--body-dark) !important;
 }
 
 #footerContainer {
 	padding: 0;
 	width: 98%;
 	float: left;
-	background-color: #404040;
+	background-color: var(--container-outer-dark);
 	height: 10vh;
 	margin: 1%;
-	box-shadow: 0 0 5px 5px #808080;
+	box-shadow: 0 0 5px 5px var(--box-shadow-dark);
 }
 
 #mmuLogo {
@@ -117,9 +125,9 @@ body {
 	padding: 1% 1% 1% 1%;
 	margin-top: 1.35%;
 	margin-bottom: 1%;
-	background-color: #606060;
+	background-color: var(--container-inner-dark);
 }
 
 #gitHubLink {
-	color: whitesmoke;
+	color: var(--p-text-dark);
 }
