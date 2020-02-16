@@ -5,20 +5,24 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<!-- CSS -->
-	<link rel="stylesheet" href="../application/css/MyStyle.css">
-
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<!-- Material Design Bootstrap -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css">
 
-	<title> <?php foreach ($result as $row) { echo $review->GameName; break; } ?> </title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="<?php echo base_url().'application/css/MyStyle.css'; ?>">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+
+	<title><?php echo $title ?></title>
 </head>
 
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark rounded">
 	<span class="navbar-brand">1CKW50</span>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 	        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,6 +67,16 @@ foreach ($gameReview as $review) {
 _END;
 }
 ?>
+
+<footer>
+	<div class="backgroundContainer rounded" id="footerContainer">
+		<!-- MMU Logo -->
+		<img id="mmuLogo" src="<?php echo base_url(). 'application/images/mmuDark.jpg'; ?>" alt="MMU Logo">
+		<div class="backgroundContainer rounded" id="gitHubContainer">
+			<a id="gitHubLink" href="https://github.com/JonathanMSifleet">© Jonathan Sifleet (18014017)</a>
+		</div>
+	</div>
+</footer>
 
 </body>
 

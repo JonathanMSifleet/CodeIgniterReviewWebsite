@@ -3,23 +3,38 @@ html * {
 }
 
 .btn-primary {
-	margin: auto;
 	width: 60%;
-	margin-bottom: 7%;
+	margin: auto auto 7%;
 }
 
 .card {
 	width: 18rem;
+	background-color: #606060;
+}
+
+.card-title {
+	color: whitesmoke;
+}
+
+.card-text {
+	color: #D3D3D3 !important;
 }
 
 .backgroundContainer {
 	margin: 0.5% 0.5% 0.5% 0.5%;
 	padding: 1% 1% 1% 1%;
 	width: auto;
-	background-color: whitesmoke;
+	background-color: #404040;
 	overflow: auto;
-	display: inline-block;
 	float: left;
+}
+
+.navbar {
+	background-color: #404040 !important;
+	margin-top: 1%;
+	margin-left: 1%;
+	margin-right: 1%;
+	box-shadow: 0 0 5px 5px #808080;
 }
 
 .reviewData {
@@ -57,6 +72,7 @@ h1 {
 	padding-top: 1%;
 	width: 100vw;
 	text-align: center;
+	color: whitesmoke;
 }
 
 .reviewImage {
@@ -64,8 +80,46 @@ h1 {
 	float: left;
 }
 
+.nav-item {
+	background-color: transparent !important;
+}
+
 .container-fluid {
 	margin-top: 1vh;
 	background-color: white;
 	width: auto;
+	background-color: #212121;
+}
+
+body {
+	overflow-x: hidden;
+	background-color: #212121 !important;
+}
+
+#footerContainer {
+	padding: 0;
+	width: 98%;
+	float: left;
+	background-color: #404040;
+	height: 10vh;
+	margin: 1%;
+	box-shadow: 0 0 5px 5px #808080;
+}
+
+#mmuLogo {
+	padding: 0.5% 0.5% 0.5% 0.5%;
+	height: 100%;
+	width: auto;
+	float: left;
+}
+
+#gitHubContainer {
+	padding: 1% 1% 1% 1%;
+	margin-top: 1.35%;
+	margin-bottom: 1%;
+	background-color: #606060;
+}
+
+#gitHubLink {
+	color: whitesmoke;
 }
