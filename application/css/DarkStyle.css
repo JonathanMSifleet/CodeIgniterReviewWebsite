@@ -1,10 +1,10 @@
 :root {
-	--body-dark: #212121;
-	--container-outer-dark: #404040;
-	--container-inner-dark: #606060;
-	--p-text-dark: #D3D3D3;
-	--box-shadow-dark: #808080;
-	--title-dark: whitesmoke;
+	--body: #212121;
+	--container-outer: #404040;
+	--container-inner: #606060;
+	--p-text: #D3D3D3;
+	--box-shadow: #808080;
+	--title: whitesmoke;
 }
 
 html * {
@@ -17,29 +17,30 @@ html * {
 }
 
 .card {
-	width: 18rem;
-	background-color: var(--container-inner-dark);
+	width: auto;
+	margin: 0 auto;
+	background-color: var(--container-inner);
 }
 
 .card-title {
-	color: var(--title-dark);
+	color: var(--title);
 }
 
 .card-text {
-	color: var(--p-text-dark) !important;
+	color: var(--p-text) !important;
 }
 
-.backgroundContainer {
-	margin: 0.5% 0.5% 0.5% 0.5%;
+.cardContainer {
+	margin: 1% 1% 1% 1%;
 	padding: 1% 1% 1% 1%;
-	width: auto;
-	background-color: var(--container-outer-dark);
+	width: 18vw;
+	background-color: var(--container-outer);
 	overflow: auto;
 	float: left;
 }
 
 .navbar {
-	background-color: var(--container-outer-dark) !important;
+	background-color: var(--container-outer) !important;
 	margin-top: 1%;
 	margin-left: 1%;
 	margin-right: 1%;
@@ -78,18 +79,19 @@ html * {
 }
 
 p {
-	color: var(--p-text-dark);
+	color: var(--p-text);
 }
 
 h1 {
 	padding-top: 1%;
 	width: 100vw;
 	text-align: center;
-	color: var(--title-dark);
+	color: var(--title);
 }
 
 .reviewImage {
-	max-width: 20vw;
+	width: 20%;
+	height: auto;
 	float: left;
 }
 
@@ -100,22 +102,22 @@ h1 {
 .container-fluid {
 	margin-top: 1vh;
 	width: auto;
-	background-color: var(--body-dark);
+	background-color: var(--body);
 }
 
 body {
 	overflow-x: hidden;
-	background-color: var(--body-dark) !important;
+	background-color: var(--body) !important;
 }
 
-#footerContainer {
+.footerContainer {
 	padding: 0;
 	width: 98%;
 	float: left;
-	background-color: var(--container-outer-dark);
+	background-color: var(--container-outer);
 	height: 10vh;
 	margin: 1%;
-	box-shadow: 0 0 5px 5px var(--box-shadow-dark);
+	box-shadow: 0 0 5px 5px var(--box-shadow);
 }
 
 #mmuLogo {
@@ -125,13 +127,13 @@ body {
 	float: left;
 }
 
-#gitHubContainer {
+.gitHubContainer {
 	padding: 1% 1% 1% 1%;
 	margin-top: 1.35%;
 	margin-bottom: 1%;
-	background-color: var(--container-inner-dark);
+	background-color: var(--container-inner);
 }
 
 #gitHubLink {
-	color: var(--p-text-dark);
+	color: var(--p-text);
 }

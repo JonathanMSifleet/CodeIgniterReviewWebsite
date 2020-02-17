@@ -62,7 +62,7 @@
             $gameSlug = $row->slug;
             $reviewURL = base_url() . "review/" . $gameSlug;
             echo <<<_END
-				<div class="backgroundContainer rounded">
+				<div class="cardContainer rounded">
                     <div class="card">
                         <img class="card-img-top" src='$gameImage' alt="Card image cap">
                         <div class="card-body">
@@ -86,10 +86,10 @@ _END;
 </div> -->
 
 <footer>
-    <div class="backgroundContainer rounded" id="footerContainer">
+    <div class="footerContainer rounded">
         <!-- MMU Logo -->
         <img id="mmuLogo" src="<?php echo base_url() . 'application/images/mmuDark.jpg'; ?>" alt="MMU Logo">
-        <div class="backgroundContainer rounded" id="gitHubContainer">
+        <div class="gitHubContainer rounded" id="gitHubContainer">
             <a id="gitHubLink" href="https://github.com/JonathanMSifleet">© Jonathan Sifleet (18014017)</a>
         </div>
     </div>
