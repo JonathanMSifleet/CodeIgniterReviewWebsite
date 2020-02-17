@@ -1,10 +1,10 @@
 :root {
-	--body-dark: #212121;
-	--container-outer-dark: #404040;
-	--container-inner-dark: #606060;
-	--p-text-dark: #D3D3D3;
-	--box-shadow-dark: #808080;
-	--title-dark: whitesmoke;
+	--body-light: white;
+	--container-outer-light: #404040;
+	--container-inner-light: #606060;
+	--p-text-light: black;
+	--box-shadow-light: #808080;
+	--title-light: black;
 }
 
 html * {
@@ -18,28 +18,28 @@ html * {
 
 .card {
 	width: 18rem;
-	background-color: var(--container-inner-dark);
+	background-color: var(--container-inner-light);
 }
 
 .card-title {
-	color: var(--title-dark);
+	color: var(--title-light);
 }
 
 .card-text {
-	color: var(--p-text-dark) !important;
+	color: var(--p-text-light) !important;
 }
 
 .backgroundContainer {
 	margin: 0.5% 0.5% 0.5% 0.5%;
 	padding: 1% 1% 1% 1%;
 	width: auto;
-	background-color: var(--container-outer-dark);
+	background-color: var(--container-outer-light);
 	overflow: auto;
 	float: left;
 }
 
 .navbar {
-	background-color: var(--container-outer-dark) !important;
+	background-color: var(--container-outer-light) !important;
 	margin-top: 1%;
 	margin-left: 1%;
 	margin-right: 1%;
@@ -77,11 +77,15 @@ html * {
 	align: centre;
 }
 
+p {
+	color: var(--p-text-light);
+}
+
 h1 {
 	padding-top: 1%;
 	width: 100vw;
 	text-align: center;
-	color: var(--title-dark);
+	color: var(--title-light);
 }
 
 .reviewImage {
@@ -96,22 +100,22 @@ h1 {
 .container-fluid {
 	margin-top: 1vh;
 	width: auto;
-	background-color: var(--body-dark);
+	background-color: var(--body-light);
 }
 
 body {
 	overflow-x: hidden;
-	background-color: var(--body-dark) !important;
+	background-color: var(--body-light) !important;
 }
 
 #footerContainer {
 	padding: 0;
 	width: 98%;
 	float: left;
-	background-color: var(--container-outer-dark);
+	background-color: var(--container-outer-light);
 	height: 10vh;
 	margin: 1%;
-	box-shadow: 0 0 5px 5px var(--box-shadow-dark);
+	box-shadow: 0 0 5px 5px var(--box-shadow-light);
 }
 
 #mmuLogo {
@@ -125,9 +129,9 @@ body {
 	padding: 1% 1% 1% 1%;
 	margin-top: 1.35%;
 	margin-bottom: 1%;
-	background-color: var(--container-inner-dark);
+	background-color: var(--container-inner-light);
 }
 
 #gitHubLink {
-	color: var(--p-text-dark);
+	color: var(--p-text-light);
 }
