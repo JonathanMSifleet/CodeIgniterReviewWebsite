@@ -1,48 +1,48 @@
 <html>
 <head>
 
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<!-- Bootstrap -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-	<!-- Material Design Bootstrap -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css">
 
-	<!-- CSS -->
-	<link rel="stylesheet" href="<?php echo base_url().'application/css/MyStyle.css'; ?>">
+    <!-- CSS -->
+    <link rel="stylesheet" href="<?php echo base_url() . 'application/css/DarkStyle.css'; ?>">
+    <link rel="stylesheet alternate" href="<?php echo base_url() . 'application/css/LightStyle.css'; ?>">
 
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 
-	<title><?php echo $title ?></title>
+    <title><?php echo $title ?></title>
 </head>
 
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark rounded">
-	<span class="navbar-brand">1CKW50</span>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-	        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
+    <span class="navbar-brand">1CKW50</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-				<a class="nav-link" href='<?php echo base_url(); ?>'>Home <span class="sr-only">(current)</span></a>
-			</li>
-		</ul>
-	</div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href='<?php echo base_url(); ?>'>Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
 
-	<!--
-	<div class="my-2 my-lg-0">
-		<button class="btn btn-outline-success my-2 my-sm-0" type="button">Change theme</button>
-	</div>
-	-->
-	
+    <div class="my-2 my-lg-0">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="darkModeButton">Dark Mode</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="lightModeButton">Light Mode</button>
+    </div>
+
 </nav>
 
 <body>
@@ -50,17 +50,17 @@
 <h1>Jonathan's Game Review Website - 1CKW50</h1>
 
 <div class="container-fluid">
-	<div class="row justify-content-center">
-		<?php
-		foreach ($result as $row) {
+    <div class="row justify-content-center">
+        <?php
+        foreach ($result as $row) {
 
-			$reviewTitle = $row->GameName;
-			$gameTagline = $row->GameTagline;
-			$gameImage = $row->ReviewImage;
-			$gameImage = base_url() . "application/images/" . $gameImage;
-			$gameSlug = $row->slug;
-			$reviewURL = base_url() . "review/" . $gameSlug;
-			echo <<<_END
+            $reviewTitle = $row->GameName;
+            $gameTagline = $row->GameTagline;
+            $gameImage = $row->ReviewImage;
+            $gameImage = base_url() . "application/images/" . $gameImage;
+            $gameSlug = $row->slug;
+            $reviewURL = base_url() . "review/" . $gameSlug;
+            echo <<<_END
 				<div class="backgroundContainer rounded">
                     <div class="card">
                         <img class="card-img-top" src='$gameImage' alt="Card image cap">
@@ -72,9 +72,9 @@
 					</div>
 				</div>
 _END;
-		}
-		?>
-	</div>
+        }
+        ?>
+    </div>
 </div>
 
 <!-- This section needs editing to create the chat system using HTML
@@ -85,13 +85,13 @@ _END;
 </div> -->
 
 <footer>
-	<div class="backgroundContainer rounded" id="footerContainer">
-		<!-- MMU Logo -->
-		<img id="mmuLogo" src="<?php echo base_url(). 'application/images/mmuDark.jpg'; ?>" alt="MMU Logo">
-		<div class="backgroundContainer rounded" id="gitHubContainer">
-			<a id="gitHubLink" href="https://github.com/JonathanMSifleet">© Jonathan Sifleet (18014017)</a>
-		</div>
-	</div>
+    <div class="backgroundContainer rounded" id="footerContainer">
+        <!-- MMU Logo -->
+        <img id="mmuLogo" src="<?php echo base_url() . 'application/images/mmuDark.jpg'; ?>" alt="MMU Logo">
+        <div class="backgroundContainer rounded" id="gitHubContainer">
+            <a id="gitHubLink" href="https://github.com/JonathanMSifleet">© Jonathan Sifleet (18014017)</a>
+        </div>
+    </div>
 </footer>
 
 </body>
