@@ -114,6 +114,8 @@ body {
 #changeStyleButton {
 	padding: 1% 1% 1% 1%;
 	margin: 1% 1% 1% 1%;
+	color: #4285F4 !important;
+	border-color: #4285F4 !important;
 }
 
 .footerContainer {
@@ -169,4 +171,13 @@ body {
 
 #gitHubLink:hover {
 	color: var(--hyperlink);
+}
+
+.navbar-brand {
+	color: black !important;
+}
+
+.nav-link {
+	color: black !important;
+	background-color: white !important;
 }
