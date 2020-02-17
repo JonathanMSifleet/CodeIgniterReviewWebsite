@@ -1,11 +1,12 @@
 :root {
 	--body: white;
-	--container-outer: #DCDCDC;
-	--container-inner: white;
+	--container-dark: #F0F0F0;
+	--container-light: white;
 	--p-text: black;
 	--box-shadow: #808080;
 	--title: black;
 	--hyperlink: darkgray;
+	--buttonBackground: #4285F4;
 }
 
 html * {
@@ -20,7 +21,7 @@ html * {
 .card {
 	width: auto;
 	margin: 0 auto;
-	background-color: var(--container-inner);
+	background-color: var(--container-light);
 }
 
 .card-title {
@@ -35,37 +36,62 @@ html * {
 	margin: 1% 1% 1% 1%;
 	padding: 1% 1% 1% 1%;
 	width: 18vw;
-	background-color: var(--container-outer);
+	background-color: var(--container-dark);
 	overflow: auto;
 	float: left;
 }
 
 .navbar {
-	background-color: var(--container-outer) !important;
+	background-color: var(--container-dark) !important;
 	margin-top: 1%;
 	margin-left: 1%;
 	margin-right: 1%;
-	box-shadow: 0 0 5px 5px #808080;
+	box-shadow: 0 0 5px 5px var(--box-shadow);
 }
 
-.reviewData {
+#review {
+	width: 100%;
+}
+
+.reviewTextContainer {
+	float: left;
+	background-color: var(--container-dark);
+	margin: 1% 1% 1% 1%;
+	padding: 1% 1% 1% 1%;
+	display: inline-block;
+	width: 75%;
+}
+
+.textContainer {
+	float: left;
+	margin: 1% 1% 1% 1%;
+	background-color: var(--container-light);
+	padding: 1% 1% 1% 1%;
+	display: inline-block;
+}
+
+.reviewImageContainer {
+	margin: 1% 1% 1% 1%;
+	padding: 1% 1% 1% 1%;
+	width: 20%;
+	background-color: var(--container-dark);
 	float: left;
 }
 
-#reviewImageContainer {
-	margin-left: 1%;
+.reviewImage {
+	width: 100%;
+	height: auto;
+	float: left;
 }
 
 #gameBlurb {
-	clear: right;
+	float: left;
 	width: auto;
-	display: block;
 }
 
 #reviewText {
 	float: left;
-	width: auto;
-	display: block;
+	clear: left;
 }
 
 .row {
@@ -90,12 +116,6 @@ h1 {
 	color: var(--title);
 }
 
-.reviewImage {
-	width: 20%;
-	height: auto;
-	float: left;
-}
-
 .nav-item {
 	background-color: transparent !important;
 }
@@ -114,8 +134,12 @@ body {
 #changeStyleButton {
 	padding: 1% 1% 1% 1%;
 	margin: 1% 1% 1% 1%;
-	color: #4285F4 !important;
-	border-color: #4285F4 !important;
+	color: var(--buttonBackground) !important;
+	border-color: var(--buttonBackground) !important;
+}
+
+#reviewButton {
+	background-color: var(--buttonBackground) !important;
 }
 
 .footerContainer {
@@ -123,7 +147,7 @@ body {
 	width: 98%;
 	float: left;
 	height: 10%;
-	background-color: var(--container-inner);
+	background-color: var(--container-dark);
 	height: 10vh;
 	margin: 1%;
 	box-shadow: 0 0 5px 5px var(--box-shadow);
@@ -135,7 +159,7 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	background-color: var(--container-outer);
+	background-color: var(--container-dark);
 	display: flex;
 	align-items: center;
 }
@@ -154,10 +178,10 @@ body {
 	align-self: center;
 }
 
-.textContainer {
+.gitHubContainer {
 	float: left;
 	margin: 0;
-	background-color: var(--container-inner);
+	background-color: var(--container-light);
 	padding: 1% 1% 1% 1%;
 }
 
@@ -172,6 +196,7 @@ body {
 #gitHubLink:hover {
 	color: var(--hyperlink);
 }
+
 
 .navbar-brand {
 	color: black !important;
