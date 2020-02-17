@@ -1,10 +1,11 @@
 :root {
 	--body: white;
-	--container-outer: #F1F1F1;
+	--container-outer: #DCDCDC;
 	--container-inner: white;
 	--p-text: black;
 	--box-shadow: #808080;
 	--title: black;
+	--hyperlink: darkgray;
 }
 
 html * {
@@ -110,30 +111,62 @@ body {
 	background-color: var(--body) !important;
 }
 
+#changeStyleButton {
+	padding: 1% 1% 1% 1%;
+	margin: 1% 1% 1% 1%;
+}
+
 .footerContainer {
 	padding: 0;
 	width: 98%;
 	float: left;
-	background-color: var(--container-outer);
+	height: 10%;
+	background-color: var(--container-inner);
 	height: 10vh;
 	margin: 1%;
 	box-shadow: 0 0 5px 5px var(--box-shadow);
 }
 
+.footerContent {
+	float: left;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: var(--container-outer);
+	display: flex;
+	align-items: center;
+}
+
+.footerImageContainer {
+	margin: 0;
+	padding: 1% 1% 1% 1%;
+}
+
 #mmuLogo {
-	padding: 0.5% 0.5% 0.5% 0.5%;
+	margin: 0;
+	padding: 1% 1% 1% 1%;
 	height: 100%;
 	width: auto;
 	float: left;
+	align-self: center;
 }
 
-.gitHubContainer {
-	padding: 1% 1% 1% 1%;
-	margin-top: 1.35%;
-	margin-bottom: 1%;
+.textContainer {
+	float: left;
+	margin: 0;
 	background-color: var(--container-inner);
+	padding: 1% 1% 1% 1%;
 }
 
 #gitHubLink {
+	width: 100%;
+}
+
+#gitHubLink, #gitHubLink:active, #gitHubLink:focus, #gitHubLink:visited {
 	color: var(--p-text);
+}
+
+#gitHubLink:hover {
+	color: var(--hyperlink);
 }
