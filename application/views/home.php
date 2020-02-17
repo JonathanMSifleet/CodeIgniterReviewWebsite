@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() . 'application/css/DarkStyle.css'; ?>">
-    <link rel="stylesheet alternate" href="<?php echo base_url() . 'application/css/LightStyle.css'; ?>">
+    <link id= "pagestyle" rel="stylesheet" href="<?php echo base_url() . 'application/css/DarkStyle.css'; ?>">
+
+    <script src="<?php echo base_url() . 'application/scripts/ChangeTheme.js'; ?>"></script>
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -39,8 +41,7 @@
     </div>
 
     <div class="my-2 my-lg-0">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="darkModeButton">Dark Mode</button>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="lightModeButton">Light Mode</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="changeStyleButton">Change theme</button>
     </div>
 
 </nav>
