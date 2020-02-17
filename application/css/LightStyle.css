@@ -87,11 +87,13 @@ html * {
 #gameBlurb {
 	float: left;
 	width: auto;
+	font-size: 1.3em;
 }
 
 #reviewText {
 	float: left;
 	clear: left;
+	font-size: 1.3em;
 }
 
 .row {
