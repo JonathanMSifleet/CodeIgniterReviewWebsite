@@ -1,7 +1,7 @@
 :root {
 	--body-light: white;
-	--container-outer-light: #404040;
-	--container-inner-light: #606060;
+	--container-outer-light: #F1F1F1;
+	--container-inner-light: white;
 	--p-text-light: black;
 	--box-shadow-light: #808080;
 	--title-light: black;
@@ -39,11 +39,15 @@ html * {
 }
 
 .navbar {
-	background-color: var(--container-outer-light) !important;
+	background-color: var(--container-inner-light) !important;
 	margin-top: 1%;
 	margin-left: 1%;
 	margin-right: 1%;
 	box-shadow: 0 0 5px 5px #808080;
+}
+
+.navbar a, span {
+	color: black;
 }
 
 .reviewData {
@@ -112,7 +116,7 @@ body {
 	padding: 0;
 	width: 98%;
 	float: left;
-	background-color: var(--container-outer-light);
+	background-color: var(--container-inner-light);
 	height: 10vh;
 	margin: 1%;
 	box-shadow: 0 0 5px 5px var(--box-shadow-light);
@@ -129,7 +133,7 @@ body {
 	padding: 1% 1% 1% 1%;
 	margin-top: 1.35%;
 	margin-bottom: 1%;
-	background-color: var(--container-inner-light);
+	background-color: var(--container-outer-light);
 }
 
 #gitHubLink {
