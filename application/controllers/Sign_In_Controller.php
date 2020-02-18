@@ -6,7 +6,15 @@ class Sign_In_Controller extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->helper('url');
-		$this->load->model('Sign_In_Model');
+
+		if (isset($_SESSION['loggedIn'])) {
+			if ($_SESSION['loggedIn']) {
+				redirect(base_url());
+			}
+		} else {
+			$this->load->model('Sign_In_Model');
+		}
+
 	}
 
 	public function loadSignInView() {
