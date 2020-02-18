@@ -51,15 +51,7 @@
 
 <body>
 
-<?php
-
-if (isset($loginSuccessful)) {
-	if ($loginSuccessful) {
-		echo "Sign in successful";
-	}
-} else {
-	echo <<<_END
-<form method="post" action="AttemptSignIn">
+<form method="post" action="SignIn/attemptSignIn">
 	<div class="form-group">
 		<label for="inputUsername">Username</label>
 		<input type="text" name="usernameInput" class="form-control" id="inputUsername" placeholder="Enter username">
@@ -68,14 +60,17 @@ if (isset($loginSuccessful)) {
 		<label for="inputPassword">Password</label>
 		<input type="password" name="passwordInput" class="form-control" id="inputPassword" placeholder="Password">
 	</div>
+
+	<?php
+		if(isset($loginSuccessful)) {
+			if(!$loginSuccessful) {
+				echo "<p>Login failed, please check username/password</p>";
+			}
+		}
+	?>
+
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
-_END;
-
-}
-
-?>
-
 
 <footer class="footerContainer rounded">
 	<div class="footerContent rounded">

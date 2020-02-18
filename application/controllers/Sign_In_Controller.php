@@ -19,16 +19,18 @@ class Sign_In_Controller extends CI_Controller {
 			'password' => $this->input->post('passwordInput')
 		);
 
-		$data = $this->Sign_In_Model->attemptSignIn($postData);
+		$loginAttempt = $this->Sign_In_Model->attemptSignIn($postData);
 
-		$loginSuccessful = false;
+		$data = array();
 
-		if (empty($data)) {
-			$this->load->view('sign_in', $loginSuccessful);
+		if (empty($loginAttempt)) {
+			$data['loginSuccessful'] = false;
 		} else {
-			$loginSuccessful = true;
-			$this->load->view('sign_in', $loginSuccessful);
+			$data['loginSuccessful'] = true;
 		}
+
+		$this->load->view('sign_in', $data);
+
 	}
 
 }
