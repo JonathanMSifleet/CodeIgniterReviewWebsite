@@ -5,8 +5,10 @@
 	--p-text: #D3D3D3;
 	--box-shadow: #808080;
 	--title: whitesmoke;
-	--hyperlink: #BEBEBE;
+	--gitHubHyperlink: #BEBEBE;
 	--reviewButtonBackground: #00C851;
+	--reviewHyperlink: #00C851;
+	--reviewHyperlinkHover: #00993D;
 }
 
 html * {
@@ -194,5 +196,13 @@ body {
 }
 
 #gitHubLink:hover {
-	color: var(--hyperlink);
+	color: var(--gitHubHyperlink);
+}
+
+#gameBlurb a,  #gitHubLink a:active, #gitHubLink a:focus, #gitHubLink a:visited, #reviewText a,  #reviewText:active, #reviewText:focus, #reviewText:visited {
+	color: var(--reviewHyperlink);
+}
+
+#gameBlurb a:hover, #reviewText a:hover {
+	color: var(--reviewHyperlinkHover);
 }

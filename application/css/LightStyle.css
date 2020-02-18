@@ -5,7 +5,7 @@
 	--p-text: black;
 	--box-shadow: #808080;
 	--title: black;
-	--hyperlink: darkgray;
+	--gitHubHyperlink: darkgray;
 	--buttonBackground: #4285F4;
 }
 
@@ -196,7 +196,7 @@ body {
 }
 
 #gitHubLink:hover {
-	color: var(--hyperlink);
+	color: var(--gitHubHyperlink);
 }
 
 
