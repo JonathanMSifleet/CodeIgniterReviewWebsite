@@ -44,26 +44,29 @@
 		</ul>
 	</div>
 
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-				<?php
-				if (isset($_SESSION['loggedIn'])) {
-					if ($_SESSION['loggedIn']) {
-						echo "<a id='signInOutButton' class='nav-link rounded' href='SignOut'>Sign-out <span class='sr-only'>(current)</span></a>";
-					} else {
-						echo "<a id='signInOutButton' class='nav-link rounded' href='SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
-					}
+	<ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+			<?php
+
+			$baseURL = base_url();
+			$baseURL = substr($baseURL, 0, -1);
+
+			if (isset($_SESSION['loggedIn'])) {
+				if ($_SESSION['loggedIn']) {
+					echo "<a id='signInOutButton' class='nav-link rounded' href='$baseURL/SignOut'>Sign-out <span class='sr-only'>(current)</span></a>";
 				} else {
-					echo "<a id='signInOutButton' class='nav-link rounded' href='SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
+					echo "<a id='signInOutButton' class='nav-link rounded' href='$baseURL/SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
 				}
-				?>
-			</li>
-		</ul>
+			} else {
+				echo "<a id='signInOutButton' class='nav-link rounded' href='$baseURL/SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
+			}
+			?>
+		</li>
+	</ul>
 
-		<button class="btn btn-outline-success my-2 my-sm-0" type="button" name="theme" id="changeStyleButton">
-			Change theme
-		</button>
-
+	<button class="btn btn-outline-success my-2 my-sm-0" type="button" name="theme" id="changeStyleButton">
+		Change theme
+	</button>
 
 </nav>
 

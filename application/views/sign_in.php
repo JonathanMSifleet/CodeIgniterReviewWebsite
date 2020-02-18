@@ -23,7 +23,7 @@
 	<script type="text/javascript" src="<?php echo base_url() . 'application/scripts/ChangeTheme.js'; ?>"></script>
 
 
-	<title><?php echo $title ?></title>
+	<title>Sign in</title>
 </head>
 
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark rounded" id="navbar">
@@ -47,15 +47,15 @@
 	<ul class="navbar-nav mr-auto">
 		<li class="nav-item active">
 			<?php
-			if (isset($_SESSION['loggedIn'])) {
-				if ($_SESSION['loggedIn']) {
-					echo "<a id='signInOutButton' class='nav-link rounded' href='SignOut'>Sign-out <span class='sr-only'>(current)</span></a>";
+				if (isset($_SESSION['loggedIn'])) {
+					if ($_SESSION['loggedIn']) {
+						echo "<a id='signInOutButton' class='nav-link rounded' href='SignOut'>Sign-out <span class='sr-only'>(current)</span></a>";
+					} else {
+						echo "<a id='signInOutButton' class='nav-link rounded' href='SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
+					}
 				} else {
 					echo "<a id='signInOutButton' class='nav-link rounded' href='SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
 				}
-			} else {
-				echo "<a id='signInOutButton' class='nav-link rounded' href='SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
-			}
 			?>
 		</li>
 	</ul>
@@ -69,26 +69,35 @@
 
 <body>
 
-<form method="post" action="<?php echo base_url() . 'SignIn/attemptSignIn';?>">
-	<div class="form-group">
-		<label for="inputUsername">Username</label>
-		<input type="text" name="usernameInput" class="form-control" id="inputUsername" placeholder="Enter username">
-	</div>
-	<div class="form-group">
-		<label for="inputPassword">Password</label>
-		<input type="password" name="passwordInput" class="form-control" id="inputPassword" placeholder="Enter password">
-	</div>
+<div class="loginContainerOuter">
+	<div class="loginContainerInner rounded">
+		<div class="loginContainerContent rounded">
 
-	<?php
-		if(isset($loginSuccessful)) {
-			if(!$loginSuccessful) {
-				echo "<p>Login failed, please check username/password</p>";
-			}
-		}
-	?>
+			<form method="post" action="<?php echo base_url() . 'SignIn/attemptSignIn'; ?>">
+				<div class="form-group">
+					<label id="formLabel" for="inputUsername">Username</label>
+					<input type="text" name="usernameInput" class="form-control" id="inputUsername"
+					       placeholder="Enter username">
+				</div>
+				<div class="form-group">
+					<label id="formLabel" for="inputPassword">Password</label>
+					<input type="password" name="passwordInput" class="form-control" id="inputPassword"
+					       placeholder="Enter password">
+				</div>
 
-	<button type="submit" class="btn btn-primary">Submit</button>
-</form>
+				<?php
+				if (isset($loginSuccessful)) {
+					if (!$loginSuccessful) {
+						echo "<p>Login failed, please check username/password</p>";
+					}
+				}
+				?>
+
+				<button id="loginButton" type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>
 
 <footer class="footerContainer rounded">
 	<div class="footerContent rounded">

@@ -43,9 +43,7 @@ html * {
 
 .navbar {
 	background-color: var(--container-dark) !important;
-	margin-top: 1%;
-	margin-left: 1%;
-	margin-right: 1%;
+	margin: 1% 1% 1% 1%;
 	box-shadow: 0 0 5px 5px var(--box-shadow);
 }
 
@@ -208,4 +206,40 @@ body {
 .nav-link {
 	color: black !important;
 	background-color: white !important;
+}
+
+.loginContainerOuter {
+	width: 100%;
+	padding: 1% 1% 1% 1%;
+}
+
+.loginContainerInner {
+	background-color: var(--container-dark);
+	margin: 0 auto;
+	padding: 1% 1% 1% 1%;
+	width: 50vw;
+	height: auto;
+	overflow: hidden;
+}
+
+.loginContainerContent {
+	float: left;
+	background-color: var(--container-light);
+	display: block;
+	align: centre;
+	width: 100%;
+	height: auto;
+	padding: 1% 1% 1% 1%;
+	clear: both;
+}
+
+#formLabel {
+	color: var(--p-text);
+}
+
+#loginButton {
+	background-color: var(--buttonBackground) !important;
+	margin: 0 auto;
+	width: 50%;
+	display: block;
 }
