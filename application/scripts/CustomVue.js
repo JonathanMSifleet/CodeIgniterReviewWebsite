@@ -11,7 +11,7 @@ var header = new Vue({
 		generateHeading: function () {
 			this.heading = ''
 		},
-		getReviewName: function() {
+		getReviewName: function () {
 			$.get("http://localhost:82/")
 		}
 	}

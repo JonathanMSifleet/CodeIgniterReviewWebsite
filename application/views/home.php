@@ -38,13 +38,26 @@
 			<li class="nav-item active">
 				<a class="nav-link rounded" href='<?php echo base_url(); ?>'>Home <span class="sr-only">(current)</span></a>
 			</li>
+			<li class="nav-item active">
+				<a class="nav-link rounded" href='http://localhost:82/phpmyadmin'>PHPMyAdmin <span class="sr-only">(current)</span></a>
+			</li>
 		</ul>
 	</div>
 
 	<div class="my-2 my-lg-0">
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link rounded" href='SignIn'>Sign-in <span class="sr-only">(current)</span></a>
+				</li>
+			</ul>
+		</div>
+
 		<button class="btn btn-outline-success my-2 my-sm-0" type="button" name="theme" id="changeStyleButton">
 			Change theme
 		</button>
+
 	</div>
 
 </nav>

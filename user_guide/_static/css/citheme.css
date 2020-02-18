@@ -23,7 +23,7 @@
 
 #nav_inner {
 	background-color: transparent;
-	font-family: Lucida Grande,Verdana,Geneva,sans-serif;
+	font-family: Lucida Grande, Verdana, Geneva, sans-serif;
 	font-size: 11px;
 	margin: 0;
 	padding: 8px 12px 0 20px;
@@ -45,7 +45,7 @@ div#pulldown-menu {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	-webkit-column-break-inside: avoid; /*Chrome, Safari*/
-	display: table;	/*Firefox*/
+	display: table; /*Firefox*/
 	break-inside: avoid; /*IE 10+ theoretically*/
 }
 
@@ -59,7 +59,7 @@ div#pulldown-menu {
 	color: #ffffff;
 	text-decoration: none;
 	font-size: 12px;
-	font-family: "Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif;
+	font-family: "Roboto Slab", "ff-tisa-web-pro", "Georgia", Arial, sans-serif;
 	font-weight: 700;
 }
 
@@ -68,12 +68,13 @@ div#pulldown-menu {
 	font-size: 11px;
 	line-height: 1.4em;
 	font-weight: 300;
-	font-family: Lucida Grande,Verdana,Geneva,sans-serif;
+	font-family: Lucida Grande, Verdana, Geneva, sans-serif;
 	color: #aaaaaa;
 }
 
 /*hide pulldown menu on mobile devices*/
-@media (max-width: 768px) { /*tablet size defined by theme*/
+@media (max-width: 768px) {
+	/*tablet size defined by theme*/
 	#closeMe {
 		display: none;
 	}

@@ -1,7 +1,6 @@
 <?php
 
-class Sign_In_Model extends CI_Model
-{
+class Sign_In_Model extends CI_Model {
 
 	public function __construct() {
 
