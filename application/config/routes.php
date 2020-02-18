@@ -54,6 +54,7 @@ $route['index'] = 'Home/index';
 $route['review/(:any)'] = 'Review_Controller/review/$1';
 $route['SignIn'] = 'Sign_In_Controller/loadSignInView';
 $route['SignIn/attemptSignIn'] = 'Sign_In_Controller/attemptSignIn';
+$route['SignOut'] = 'Sign_Out_Controller/signOut';
 $route['Logout'] = 'Home/Logout';
 $route['login/getUserDetails'] = 'Login/GetUserDetails';
 $route['account'] = 'Account';
