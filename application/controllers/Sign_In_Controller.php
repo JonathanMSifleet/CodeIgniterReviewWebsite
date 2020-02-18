@@ -21,16 +21,15 @@ class Sign_In_Controller extends CI_Controller {
 
 		$loginAttempt = $this->Sign_In_Model->attemptSignIn($postData);
 
-		$data = array();
-
 		if (empty($loginAttempt)) {
 			$data['loginSuccessful'] = false;
+			$this->load->view('sign_in', $data);
 		} else {
-			$data['loginSuccessful'] = true;
+			$_SESSION['loggedIn'] = true;
+			$_SESSION['loggedInUsername'] = $postData['username'];
+			// redirect:
+			redirect(base_url());
 		}
-
-		$this->load->view('sign_in', $data);
-
 	}
 
 }

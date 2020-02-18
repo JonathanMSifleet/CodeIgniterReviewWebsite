@@ -51,14 +51,14 @@
 
 <body>
 
-<form method="post" action="SignIn/attemptSignIn">
+<form method="post" action="<?php echo base_url() . 'SignIn/attemptSignIn';?>">
 	<div class="form-group">
 		<label for="inputUsername">Username</label>
 		<input type="text" name="usernameInput" class="form-control" id="inputUsername" placeholder="Enter username">
 	</div>
 	<div class="form-group">
 		<label for="inputPassword">Password</label>
-		<input type="password" name="passwordInput" class="form-control" id="inputPassword" placeholder="Password">
+		<input type="password" name="passwordInput" class="form-control" id="inputPassword" placeholder="Enter password">
 	</div>
 
 	<?php
