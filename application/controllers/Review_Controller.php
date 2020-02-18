@@ -1,8 +1,7 @@
 <?php
 if (!defined('BASEPATH')) exit ('no direct script access allowed');
 
-class Review_Controller extends CI_Controller
-{
+class Review_Controller extends CI_Controller {
 	public function __construct() {
 
 		parent::__construct();
@@ -12,14 +11,7 @@ class Review_Controller extends CI_Controller
 
 	public function review($slug) {
 
-		$reviewData['gameReview'] = $this->Review_Model->GetReviewData($slug);
-
-		/*
-		$arrayToUse = array();
-		foreach ($reviewData as $curArray) {
-			$arrayToUse = $curArray;
-			break;
-		} */
+		$reviewData['gameReview'] = $this->Review_Model->getReviewData($slug);
 
 		$this->load->view('review', $reviewData);
 	}
