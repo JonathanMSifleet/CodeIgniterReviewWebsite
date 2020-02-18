@@ -136,8 +136,9 @@ body {
 }
 
 #changeStyleButton {
+	float: right;
 	padding: 1% 1% 1% 1%;
-	margin: 1% 1% 1% 1%;
+	margin-left: 1%;
 }
 
 #reviewButton {
