@@ -41,6 +41,9 @@
 				<a class="nav-link rounded" href='<?php echo base_url(); ?>'>Home <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item active">
+				<a class="nav-link rounded" href='<?php echo base_url() . "ChatServer"; ?>'>Chat server <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
 				<a class="nav-link rounded" href='http://localhost:82/phpmyadmin'>PHPMyAdmin <span class="sr-only">(current)</span></a>
 			</li>
 		</ul>
@@ -53,7 +56,7 @@
 		if (isset($_SESSION['loggedIn'])) {
 			if ($_SESSION['loggedIn']) {
 				echo "<li class='nav-item active'>";
-				echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "/SignOut'>Sign-out <span class='sr-only'>(current)</span></a>";
+				echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "/SignOut'>Sign-out (" . $_SESSION['loggedInUsername'] . ") <span class='sr-only'>(current)</span></a>";
 				echo "</li>";
 			} else {
 				echo "<li class='nav-item active'>";
@@ -76,9 +79,7 @@
 		?>
 	</ul>
 
-	<button class="btn btn-outline-success my-2 my-sm-0" type="button" name="theme" id="changeStyleButton">
-		Change theme
-	</button>
+	<button class="btn btn-outline-success my-2 my-sm-0" type="button" name="theme" id="changeStyleButton">Change theme</button>
 
 </nav>
 

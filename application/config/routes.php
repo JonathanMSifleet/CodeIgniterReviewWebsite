@@ -57,6 +57,7 @@ $route['SignIn/attemptSignIn'] = 'Sign_In_Controller/attemptSignIn';
 $route['SignUp'] = 'Sign_Up_Controller/loadSignUpView';
 $route['SignUp/attemptSignUp'] = 'Sign_Up_Controller/attemptSignUp';
 $route['SignOut'] = 'Sign_Out_Controller/signOut';
+$route['ChatServer'] = 'Chat_Server_Controller/loadChatServerView';
 $route['Logout'] = 'Home/Logout';
 $route['login/getUserDetails'] = 'Login/GetUserDetails';
 $route['account'] = 'Account';

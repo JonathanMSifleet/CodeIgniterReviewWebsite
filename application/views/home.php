@@ -39,6 +39,9 @@
 				<a class="nav-link rounded" href='<?php echo base_url(); ?>'>Home <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item active">
+				<a class="nav-link rounded" href='<?php echo base_url() . "ChatServer"; ?>'>Chat server <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
 				<a class="nav-link rounded" href='http://localhost:82/phpmyadmin'>PHPMyAdmin <span class="sr-only">(current)</span></a>
 			</li>
 		</ul>
@@ -74,9 +77,7 @@
 		?>
 	</ul>
 
-	<button class="btn btn-outline-success my-2 my-sm-0" type="button" name="theme" id="changeStyleButton">
-		Change theme
-	</button>
+	<button class="btn btn-outline-success my-2 my-sm-0" type="button" name="theme" id="changeStyleButton">Change theme</button>
 
 </nav>
 
