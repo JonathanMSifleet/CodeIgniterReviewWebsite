@@ -47,23 +47,33 @@
 	</div>
 
 	<ul class="navbar-nav mr-auto">
-		<li class="nav-item active">
-			<?php
 
-			$baseURL = base_url();
-			$baseURL = substr($baseURL, 0, -1);
+		<?php
 
-			if (isset($_SESSION['loggedIn'])) {
-				if ($_SESSION['loggedIn']) {
-					echo "<a id='signInOutButton' class='nav-link rounded' href='$baseURL/SignOut'>Sign-out <span class='sr-only'>(current)</span></a>";
-				} else {
-					echo "<a id='signInOutButton' class='nav-link rounded' href='$baseURL/SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
-				}
+		if (isset($_SESSION['loggedIn'])) {
+			if ($_SESSION['loggedIn']) {
+				echo "<li class='nav-item active'>";
+				echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "/SignOut'>Sign-out <span class='sr-only'>(current)</span></a>";
+				echo "</li>";
 			} else {
-				echo "<a id='signInOutButton' class='nav-link rounded' href='$baseURL/SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
+				echo "<li class='nav-item active'>";
+				echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "SignUp'>Sign-up <span class='sr-only'>(current)</span></a>";
+				echo "</li>";
+
+				echo "<li class='nav-item active'>";
+				echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . ">Sign-in <span class='sr-only'>(current)</span></a>";
+				echo "</li>";
 			}
-			?>
-		</li>
+		} else {
+			echo "<li class='nav-item active'>";
+			echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "SignUp'>Sign-up <span class='sr-only'>(current)</span></a>";
+			echo "</li>";
+
+			echo "<li class='nav-item active'>";
+			echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
+			echo "</li>";
+		}
+		?>
 	</ul>
 
 	<button class="btn btn-outline-success my-2 my-sm-0" type="button" name="theme" id="changeStyleButton">
@@ -106,6 +116,8 @@ _END;
 
 </div>
 
+</body>
+
 <footer class="footer rounded">
 	<div class="footerContainer">
 		<div class="footerContent rounded">
@@ -118,7 +130,5 @@ _END;
 		</div>
 	</div>
 </footer>
-
-</body>
 
 </html>

@@ -46,25 +46,32 @@
 
 	<ul class="navbar-nav mr-auto">
 
-		<li class="nav-item active">
-			<a id='signInOutButton' class='nav-link rounded' href="<?php echo base_url() . 'SignUp'; ?>">Sign-up <span
-					class='sr-only'>(current)</span></a>
-		</li>
+		<?php
 
-		<li class="nav-item active">
-			<?php
-
-			if (isset($_SESSION['loggedIn'])) {
-				if ($_SESSION['loggedIn']) {
-					echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "/SignOut'>Sign-out <span class='sr-only'>(current)</span></a>";
-				} else {
-					echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . ">Sign-in <span class='sr-only'>(current)</span></a>";
-				}
+		if (isset($_SESSION['loggedIn'])) {
+			if ($_SESSION['loggedIn']) {
+				echo "<li class='nav-item active'>";
+				echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "/SignOut'>Sign-out <span class='sr-only'>(current)</span></a>";
+				echo "</li>";
 			} else {
-				echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
+				echo "<li class='nav-item active'>";
+				echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "SignUp'>Sign-up <span class='sr-only'>(current)</span></a>";
+				echo "</li>";
+
+				echo "<li class='nav-item active'>";
+				echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . ">Sign-in <span class='sr-only'>(current)</span></a>";
+				echo "</li>";
 			}
-			?>
-		</li>
+		} else {
+			echo "<li class='nav-item active'>";
+			echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "SignUp'>Sign-up <span class='sr-only'>(current)</span></a>";
+			echo "</li>";
+
+			echo "<li class='nav-item active'>";
+			echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
+			echo "</li>";
+		}
+		?>
 	</ul>
 
 	<button class="btn btn-outline-success my-2 my-sm-0" type="button" name="theme" id="changeStyleButton">
