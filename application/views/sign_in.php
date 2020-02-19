@@ -47,15 +47,15 @@
 	<ul class="navbar-nav mr-auto">
 		<li class="nav-item active">
 			<?php
-				if (isset($_SESSION['loggedIn'])) {
-					if ($_SESSION['loggedIn']) {
-						echo "<a id='signInOutButton' class='nav-link rounded' href='SignOut'>Sign-out <span class='sr-only'>(current)</span></a>";
-					} else {
-						echo "<a id='signInOutButton' class='nav-link rounded' href='SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
-					}
+			if (isset($_SESSION['loggedIn'])) {
+				if ($_SESSION['loggedIn']) {
+					echo "<a id='signInOutButton' class='nav-link rounded' href='SignOut'>Sign-out <span class='sr-only'>(current)</span></a>";
 				} else {
 					echo "<a id='signInOutButton' class='nav-link rounded' href='SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
 				}
+			} else {
+				echo "<a id='signInOutButton' class='nav-link rounded' href='SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
+			}
 			?>
 		</li>
 	</ul>
@@ -72,6 +72,10 @@
 <div class="loginContainerOuter">
 	<div class="loginContainerInner rounded">
 		<div class="loginContainerContent rounded">
+
+			<div class="titleWrapper">
+				<h2 id="containerTitleHeader" class="rounded">Sign-in</h2>
+			</div>
 
 			<form method="post" action="<?php echo base_url() . 'SignIn/attemptSignIn'; ?>">
 				<div class="form-group">
@@ -99,17 +103,19 @@
 	</div>
 </div>
 
-<footer class="footerContainer rounded">
-	<div class="footerContent rounded">
-		<div class="footerImageContainer">
-			<img id="mmuLogo" src="<?php echo base_url() . 'application/images/mmuDark.jpg'; ?>" alt="MMU Logo">
-		</div>
-		<div class="gitHubContainer rounded">
-			<a id="gitHubLink" href="https://github.com/JonathanMSifleet">© Jonathan Sifleet (18014017)</a>
+</body>
+
+<footer class="footer rounded">
+	<div class="footerContainer">
+		<div class="footerContent rounded">
+			<div class="footerImageContainer">
+				<img id="mmuLogo" src="<?php echo base_url() . 'application/images/mmuDark.jpg'; ?>" alt="MMU Logo">
+			</div>
+			<div class="gitHubContainer rounded">
+				<a id="gitHubLink" href="https://github.com/JonathanMSifleet">© Jonathan Sifleet (18014017)</a>
+			</div>
 		</div>
 	</div>
 </footer>
-
-</body>
 
 </html>

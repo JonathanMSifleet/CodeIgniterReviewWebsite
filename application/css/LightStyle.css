@@ -217,7 +217,7 @@ body {
 	background-color: var(--container-dark);
 	margin: 0 auto;
 	padding: 1% 1% 1% 1%;
-	width: 50vw;
+	width: 40vw;
 	height: auto;
 	overflow: hidden;
 }
@@ -242,4 +242,22 @@ body {
 	margin: 0 auto;
 	width: 50%;
 	display: block;
+}
+
+#containerTitleHeader {
+	width: auto;
+	color: var(--p-text);
+	display: inline-block;
+	padding: 1% 1% 1% 1%;
+	margin: 1% 0 0;
+	text-align: center;
+	background-color: var(--container-dark);
+}
+
+.titleWrapper {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+	padding: 0;
 }

@@ -211,6 +211,7 @@ body {
 #gameBlurb a:hover, #reviewText a:hover {
 	color: var(--reviewHyperlinkHover);
 }
+
 .loginContainerOuter {
 	width: 100%;
 	padding: 1% 1% 1% 1%;
@@ -220,18 +221,9 @@ body {
 	background-color: var(--container-light);
 	margin: 0 auto;
 	padding: 1% 1% 1% 1%;
-	width: 50vw;
+	width: 40vw;
 	height: auto;
 	overflow: hidden;
-}
-
-.containerTitle {
-	margin: 0 auto;
-	padding: 1% 1% 1% 1%;
-	color: var(--p-text);
-	width: auto;
-	display: inline-block;
-	background-color: var(--container-light);
 }
 
 .loginContainerContent {
@@ -245,11 +237,6 @@ body {
 	clear: both;
 }
 
-#containerTitleHeader {
-	display: block;
-	text-align: center;
-}
-
 #formLabel {
 	color: var(--p-text);
 }
@@ -259,4 +246,22 @@ body {
 	margin: 0 auto;
 	width: 50%;
 	display: block;
+}
+
+#containerTitleHeader {
+	width: auto;
+	color: var(--p-text);
+	display: inline-block;
+	padding: 1% 1% 1% 1%;
+	margin: 1% 0 0;
+	text-align: center;
+	background-color: var(--container-light);
+}
+
+.titleWrapper {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+	padding: 0;
 }
