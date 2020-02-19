@@ -30,6 +30,7 @@ class Sign_Up_Controller extends CI_Controller {
 		$accountExists = $this->Sign_Up_Model->attemptSignUp($postData);
 
 		if (empty($accountExists)) {
+			$postData['password'] = $this->encryptInput($postData['password']);
 			$this->Sign_Up_Model->createAccount($postData);
 			redirect(base_url());
 		} else {
@@ -38,5 +39,10 @@ class Sign_Up_Controller extends CI_Controller {
 		}
 
 	}
+
+	private function encryptInput($input) {
+		return password_hash($input, PASSWORD_BCRYPT); // leave third parameter empty to generate random salt every time
+	}
+
 
 }
