@@ -9,6 +9,7 @@
 	--buttonBackground: #00C851;
 	--reviewHyperlink: #00C851;
 	--reviewHyperlinkHover: #00993D;
+	--textHighlight: #00C851;
 }
 
 html * {
@@ -47,6 +48,7 @@ html * {
 	background-color: var(--container-dark) !important;
 	margin: 1% 1% 1% 1%;
 	box-shadow: 0 0 5px 5px #808080;
+	position: sticky;
 }
 
 #review {
@@ -99,6 +101,8 @@ html * {
 .row {
 	margin: 0 auto;
 	align: centre;
+	clear: right;
+	height: auto;
 }
 
 .container {
@@ -131,6 +135,8 @@ h1 {
 body {
 	overflow-x: hidden;
 	background-color: var(--body) !important;
+	clear: right;
+	height: auto;
 }
 
 #changeStyleButton {
@@ -144,9 +150,9 @@ body {
 }
 
 .footerContainer {
+	float: left;
 	padding: 0;
 	width: 98%;
-	float: left;
 	height: 10%;
 	background-color: var(--container-dark);
 	height: 10vh;
@@ -219,6 +225,15 @@ body {
 	overflow: hidden;
 }
 
+.containerTitle {
+	margin: 0 auto;
+	padding: 1% 1% 1% 1%;
+	color: var(--p-text);
+	width: auto;
+	display: inline-block;
+	background-color: var(--container-light);
+}
+
 .loginContainerContent {
 	float: left;
 	background-color: var(--container-dark);
@@ -228,6 +243,11 @@ body {
 	height: auto;
 	padding: 1% 1% 1% 1%;
 	clear: both;
+}
+
+#containerTitleHeader {
+	display: block;
+	text-align: center;
 }
 
 #formLabel {
