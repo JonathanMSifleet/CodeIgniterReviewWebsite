@@ -10,7 +10,7 @@ class Sign_In_Model extends CI_Model {
 
 	public function attemptSignIn($postData) {
 
-		$query = $this->db->query("SELECT * FROM users WHERE Username = '{$postData['username']}' AND UserPassword = '{$postData['password']}' LIMIT 1");
+		$query = $this->db->query("SELECT * FROM users WHERE Username = '{$postData['username']}' LIMIT 1");
 
 		return $query->result();
 

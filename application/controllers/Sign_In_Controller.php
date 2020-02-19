@@ -30,14 +30,25 @@ class Sign_In_Controller extends CI_Controller {
 		$loginAttempt = $this->Sign_In_Model->attemptSignIn($postData);
 
 		if (empty($loginAttempt)) {
-			$data['loginSuccessful'] = false;
+			$data['message'] = "Username not found";
 			$this->load->view('sign_in', $data);
 		} else {
-			$_SESSION['loggedIn'] = true;
-			$_SESSION['loggedInUsername'] = $postData['username'];
-			// redirect:
-			redirect(base_url());
+			$userPasswordHash = null;
+
+			foreach ($loginAttempt as $curAttempt) {
+				$userPasswordHash = $curAttempt->UserPassword;
+				break;
+			}
+
+			if (password_verify($postData['password'], $userPasswordHash)) {
+				$_SESSION['loggedIn'] = true;
+				$_SESSION['loggedInUsername'] = $postData['username'];
+				// redirect:
+				redirect(base_url());
+			} else {
+				$data['message'] = "Password is incorrect";
+				$this->load->view('sign_in', $data);
+			}
 		}
 	}
-
 }

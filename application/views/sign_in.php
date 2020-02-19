@@ -103,10 +103,8 @@
 				</div>
 
 				<?php
-				if (isset($loginSuccessful)) {
-					if (!$loginSuccessful) {
-						echo "<p>Login failed, please check username/password</p>";
-					}
+				if (isset($message)) {
+					echo "<p>" . $message . ", please try again</p>";
 				}
 				?>
 
