@@ -49,6 +49,7 @@ html * {
 	margin: 1% 1% 1% 1%;
 	box-shadow: 0 0 5px 5px #808080;
 	position: sticky;
+	height: 8vh;
 }
 
 #review {

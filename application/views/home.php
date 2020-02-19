@@ -51,7 +51,7 @@
 		if (isset($_SESSION['loggedIn'])) {
 			if ($_SESSION['loggedIn']) {
 				echo "<li class='nav-item active'>";
-				echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "/SignOut'>Sign-out <span class='sr-only'>(current)</span></a>";
+				echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "/SignOut'>Sign-out (" . $_SESSION['loggedInUsername'] . ") <span class='sr-only'>(current)</span></a>";
 				echo "</li>";
 			} else {
 				echo "<li class='nav-item active'>";
