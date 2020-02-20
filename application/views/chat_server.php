@@ -27,7 +27,7 @@
 
     <script src="<?php echo base_url() . 'application/scripts/chat.js'; ?>"></script>
 
-    <title><?php echo $title ?></title>
+    <title>Chat Server</title>
 </head>
 
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark rounded" id="navbar">
@@ -100,19 +100,25 @@
     var socket = io.connection('http://localhost:8080');
 </script>
 
-<div id="enter">
-    <form id="enter">
-        <button id="sendbutton">Send</button>
-        <input type="text" id="message" autocomplete="off">
-    </form>
-</div>
-
 <!-- create an output for chat service -->
-<div id="chatspace">
+<div class="chatSpaceContainerOuter rounded">
+    <div class="chatSpaceContainerInner rounded">
+        <div id="chatspace">
+            <!-- output goes in here -->
+        </div>
 
+        <div class = "sendMessageContainer rounded">
+            <div id="enter">
+                <form id="enter">
+                    <input type="text" id="message" autocomplete="off">
+                    <button id="sendbutton">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-
 </body>
+
 
 <footer class="footer rounded">
     <div class="footerContainer">

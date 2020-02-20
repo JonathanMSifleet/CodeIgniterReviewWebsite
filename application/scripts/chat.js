@@ -11,9 +11,19 @@ $(document).ready(function() {
         $("#message").get(0).value = "";
     });
 
+
     // when we receive a message from the server...
     socket.on("server message", function(data) {
         // add the message to the output area and create a new line:
-        $("#chatspace").append(data +"<br>");
+        $("#chatspace").append(
+            "<div class='messageContainerOuter rounded'>" +
+                "<div class='messageTelemetry rounded'>" +
+                "[Username] <br> [Timestamp]" +
+                "</div>" +
+                "<div class='messageContainerInner rounded' >" +
+                    "<p class='chatOutput'>" + data + "</p><br>" +
+                "</div>" +
+        "</div>"
+        );
     });
 });
