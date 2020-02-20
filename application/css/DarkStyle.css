@@ -2,6 +2,7 @@
 	--body: #212121;
 	--container-dark: #404040;
 	--container-light: #606060;
+	--container-admin: #00913A;
 	--p-text: #D3D3D3;
 	--box-shadow: #808080;
 	--title: whitesmoke;
@@ -279,6 +280,7 @@ body {
 	width: auto;
 }
 
+
 #chatspace {
 	margin: 0;
 	padding: 0;
@@ -311,8 +313,20 @@ body {
 	float: left;
 }
 
+.messageContainerInnerAdmin {
+	margin: 0;
+	padding: 0;
+	background-color: var(--container-admin);
+	width: 89%;
+	height: auto;
+	float: left;
+}
+
 .chatOutput {
 	color: var(--p-text);
+	text-align: center;
+	padding: 1%;
+	margin: 0;
 }
 
 .sendMessageContainer {

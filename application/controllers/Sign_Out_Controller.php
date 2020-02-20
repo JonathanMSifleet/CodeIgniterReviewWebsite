@@ -10,7 +10,7 @@ class Sign_Out_Controller extends CI_Controller {
 
 	public function signOut() {
 
-		unset($_SESSION['loggedIn'], $_SESSION['loggedInUsername']);
+		unset($_SESSION['loggedIn'], $_SESSION['loggedInUsername'], $_SESSION['isAdmin']);
 
 		redirect(base_url());
 	}
