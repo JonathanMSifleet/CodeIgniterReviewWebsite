@@ -131,7 +131,7 @@ body {
 	background-color: var(--body) !important;
 }
 
-#changeStyleButton {
+#changeThemeButton {
 	float: right;
 	padding: 1% 1% 1% 1%;
 	margin-left: 1%;

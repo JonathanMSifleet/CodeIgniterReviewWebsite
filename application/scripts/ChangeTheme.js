@@ -6,7 +6,7 @@ if (localStorage.getItem("theme") === null) {
 /* jQuery method:
 
 $(document).ready(function () {
-	$('#changeStyleButton').click(function () {
+	$('#changeThemeButton').click(function () {
 		$('link[rel=pagestyle]').attr({'href': '/application/css/LightStyle.css'});
 		console.log("Button pressed");
 	});
@@ -28,8 +28,8 @@ function initialiseWebPage() {
 		document.getElementById("pagestyle").setAttribute("href", baseURL + "/application/css/LightStyle.css");
 	}
 
-	const changeStyleButton = document.getElementById("changeStyleButton");
-	changeStyleButton.addEventListener("click", swapStyleSheet);
+	const changeThemeButton = document.getElementById("changeThemeButton");
+	changeThemeButton.addEventListener("click", swapStyleSheet);
 
 	// swap style:
 	function swapStyleSheet() {
