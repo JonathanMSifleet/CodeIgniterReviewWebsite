@@ -11,7 +11,7 @@ io.on('connection', function (socket) {
     // when we receive a message from the client:
     socket.on("client message", function(data) {
 
-        console.log("Client message received: " + data);
+        console.log("Received message at " + data['timeStamp'] +" from: " + data['username'] + ": " + data['message']);
 
         // send the same message back to the client. but with a different namespace:
         io.emit("server message", data);

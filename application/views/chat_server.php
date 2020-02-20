@@ -86,9 +86,7 @@
 
 <body>
 
-<h1>Jonathan's Game Review Website - 1CKW50</h1>
-
-<!-- stuff goes here -->
+<h1>Chat server</h1>
 
 <script>
     var io = require('socket.io');
@@ -107,6 +105,8 @@
             <div id="enter">
                 <form id="enter">
                     <input type="text" id="message" autocomplete="off">
+	                <input type="hidden" id="username" value="<?php echo $_SESSION['loggedInUsername']; ?>">
+	                <input type="hidden" id="timeStamp" value="<?php echo date("d-m-Y H:i:s", time()) ;?>">
                     <button id="sendbutton">Send</button>
                 </form>
             </div>
