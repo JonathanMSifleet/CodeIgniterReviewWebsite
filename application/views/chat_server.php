@@ -108,7 +108,7 @@
 			<!-- output goes in here -->
 		</div>
 
-		<div class="sendMessageContainer rounded">
+		<div class="sendMessageContainer rounded" id="sendMessageContainer">
 			<div id="enter">
 				<form id="enter">
 					<input type="text" id="message" autocomplete="off">

@@ -1,6 +1,7 @@
 $(document).ready(function () {
 	// connect to the socket.IO server
 	var socket = io.connect("http://localhost:8080");
+	var connectionFailed = false;
 
 	// when the form submits...
 	$("form").submit(function (e) {
@@ -42,8 +43,17 @@ $(document).ready(function () {
 	});
 
 	socket.on('connect_error', function () {
-		console.log("Cannot connect to server");
-		$("#chatspace").append("<p> Server offline... Attempting reconnect <p>");
+
+		if (!connectionFailed) {
+			var chatContainer = document.getElementById("sendMessageContainer");
+			chatContainer.style.display = "none";
+
+			console.log("Cannot connect to server");
+			$("#chatspace").append("<p> Unable to connect to chat server. Server may be offline. Please try again later<p>");
+			connectionFailed = true;
+		}
+
+
 	});
 
 });
