@@ -40,4 +40,10 @@ $(document).ready(function () {
 			"</div>"
 		);
 	});
+
+	socket.on('connect_error', function () {
+		console.log("Cannot connect to server");
+		$("#chatspace").append("<p> Server offline... Attempting reconnect <p>");
+	});
+
 });
