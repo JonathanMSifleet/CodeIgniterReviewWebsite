@@ -22,9 +22,11 @@
 	<!-- change theme script -->
 	<script type="text/javascript" src="<?php echo base_url() . 'application/scripts/ChangeTheme.js'; ?>"></script>
 
+	<!-- download chat script -->
+	<script type="text/javascript" src="<?php echo base_url() . 'application/scripts/DownloadChat.js'; ?>"></script>
+
 	<!-- socket io library -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-
 	<script src="<?php echo base_url() . 'application/scripts/chat.js'; ?>"></script>
 
 	<title>Chat Server</title>
@@ -96,6 +98,11 @@
 
 <!-- create an output for chat service -->
 <div class="chatSpaceContainerOuter rounded">
+
+	<div class="chatRoomContainer rounded">
+		<h3 id="chatRoomTitle">Chat Rooms</h3>
+	</div>
+
 	<div class="chatSpaceContainerInner rounded">
 		<div id="chatspace">
 			<!-- output goes in here -->
@@ -118,12 +125,18 @@
 						echo false;
 					}
 					?>">
-					<button id="sendbutton">Send</button>
+					<button type='submit' id='sendbutton'>Send</button>
 				</form>
+
+				<button id="downloadChatButton">Download chat</button>
+				<input type="hidden" name="JSONInput" id="postedJSONData">
+
 			</div>
 		</div>
 	</div>
 </div>
+
+
 </body>
 
 

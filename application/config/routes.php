@@ -58,6 +58,7 @@ $route['SignUp'] = 'Sign_Up_Controller/loadSignUpView';
 $route['SignUp/attemptSignUp'] = 'Sign_Up_Controller/attemptSignUp';
 $route['SignOut'] = 'Sign_Out_Controller/signOut';
 $route['ChatServer'] = 'Chat_Server_Controller/loadChatServerView';
+$route['ChatServer/DownloadChat'] = 'Chat_Server_Controller/downloadChat';
 $route['Logout'] = 'Home/Logout';
 $route['login/getUserDetails'] = 'Login/GetUserDetails';
 $route['account'] = 'Account';

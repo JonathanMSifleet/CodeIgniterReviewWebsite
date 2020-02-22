@@ -22,7 +22,6 @@
 	<!-- change theme script -->
 	<script type="text/javascript" src="<?php echo base_url() . 'application/scripts/ChangeTheme.js'; ?>"></script>
 
-
 	<title>Sign in</title>
 </head>
 

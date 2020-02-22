@@ -31,11 +31,11 @@ $(document).ready(function () {
 
 		$("#chatspace").append(
 			"<div class='messageContainerOuter rounded'>" +
-			"<div class='messageTelemetry rounded'><p class='chatOutput'>" +
+			"<div class='messageTelemetry rounded'><p class='outputTelemetry'>" +
 			data['username'] + " <br> " + data['timeStamp'] +
 			"</p></div>" +
 			messageContainer +
-			"<p class='chatOutput'>" + data['message'] + "</p>" +
+			"<p class='outputMessage'>" + data['message'] + "</p>" +
 			"</div>" +
 			"</div>"
 		);
