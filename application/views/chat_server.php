@@ -129,8 +129,6 @@
 				</form>
 
 				<button id="downloadChatButton">Download chat</button>
-				<input type="hidden" name="JSONInput" id="postedJSONData">
-
 			</div>
 		</div>
 	</div>
