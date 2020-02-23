@@ -36,6 +36,18 @@ class Review_Model extends CI_Model {
 
 	}
 
+	public function getComments() {
+
+		$reviewID = $_SESSION['reviewID'];
+
+		$this->db->query("SELECT * FROM gamescomments WHERE ReviewID = '$reviewID'");
+		$result = $this->query->result();
+		$json = json_encode($result);
+
+		print_r($json);
+
+	}
+
 }
 
 ?>
