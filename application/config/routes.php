@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Home';
 $route['index'] = 'Home/index';
 $route['review/(:any)'] = 'Review_Controller/review/$1';
+$route['review/(:any)/PostComment'] = 'Review_Controller/postComment';
 $route['SignIn'] = 'Sign_In_Controller/loadSignInView';
 $route['SignIn/attemptSignIn'] = 'Sign_In_Controller/attemptSignIn';
 $route['SignUp'] = 'Sign_Up_Controller/loadSignUpView';

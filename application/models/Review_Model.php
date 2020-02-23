@@ -16,6 +16,26 @@ class Review_Model extends CI_Model {
 
 	}
 
+	public function attemptPostComment($postData) {
+
+		// UID, UserID, ReviewID, UserComment
+
+		$query = $this->db->query("SELECT UserID FROM users WHERE UserName = '{$postData['username']}' LIMIT 1");
+		$result = $query->result();
+
+		$userID = "";
+
+		foreach ($result as $curID) {
+			$userID = $curID->UserID;
+			break;
+		}
+
+		$query = $this->db->query("INSERT INTO gamescomments (UID, UserID, ReviewID, UserComment, TimeStamp) VALUES(null, '$userID', '{$postData['reviewID']}', '{$postData['comment']}', '{$postData['timeStamp']}')");
+
+		return;
+
+	}
+
 }
 
 ?>

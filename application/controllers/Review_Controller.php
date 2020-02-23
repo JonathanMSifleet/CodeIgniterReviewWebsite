@@ -15,4 +15,21 @@ class Review_Controller extends CI_Controller {
 
 		$this->load->view('review', $reviewData);
 	}
+
+	public function postComment() {
+		$postData = array(
+			'username' => $this->input->post('username'),
+			'comment' => $this->input->post('commentInput'),
+			'reviewID' => $this->input->post('reviewID'),
+			'timeStamp' => $this->input->post('timeStamp')
+		);
+
+		$previousLink = $this->input->post('currentURL');
+		$previousLink = substr($previousLink, 13, strlen($previousLink));
+
+		$this->Review_Model->attemptPostComment($postData);
+
+		redirect($previousLink);
+
+	}
 }
