@@ -48,6 +48,12 @@
 	</div>
 
 	<ul class="navbar-nav mr-auto">
+		<li>
+			<form class="form-inline" method="post" action="Search">
+				<input class="form-control mr-sm-2" type="search" name="searchTerm" placeholder="Search reviews" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchButton">Search</button>
+			</form>
+		</li>
 
 		<?php
 

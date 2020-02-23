@@ -457,3 +457,7 @@ body {
 	display: block;
 	background-color: var(--buttonBackground) !important;
 }
+
+#searchButton {
+	display: none;
+}

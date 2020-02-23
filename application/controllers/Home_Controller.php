@@ -17,6 +17,21 @@ class Home_Controller extends CI_Controller {
 	}
 
 	public function index() {
+		//Load data required for web page in array.
+
+		// Change this to whatever title you wish.
+		$data['title'] = 'Games Reviews';
+
+		// Get the data from our Home Model.
+		$data['result'] = $this->Home_Model->getGame("");
+
+		//Load the view and send the data across.
+		$this->load->view('home', $data);
+	}
+
+	public function searchReview($gameName) {
+
+		$gameName = $this->input->post('searchTerm');
 
 		//Load data required for web page in array.
 
@@ -24,7 +39,7 @@ class Home_Controller extends CI_Controller {
 		$data['title'] = 'Games Reviews';
 
 		// Get the data from our Home Model.
-		$data['result'] = $this->Home_Model->getGame();
+		$data['result'] = $this->Home_Model->getGame($gameName);
 
 		//Load the view and send the data across.
 		$this->load->view('home', $data);

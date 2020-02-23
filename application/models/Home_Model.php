@@ -6,11 +6,17 @@ class Home_Model extends CI_Model {
 		$this->load->database();
 	}
 
-	//Get for all games
-	public function getGame() {
-		// You can use the select, from, and where functions to simplify this as seen in Week 13.
-		$query = $this->db->query("SELECT * FROM activereviews");
+	public function getGame($gameName) {
+		$query=null;
+
+		if ($gameName != "") {
+			$query = $this->db->query("SELECT * FROM activereviews WHERE GameName LIKE '%$gameName%'");
+		} else {
+			$query = $this->db->query("SELECT * FROM activereviews");
+		}
+
 		return $query->result();
+
 	}
 
 	//Get the details for a game once it has been clicked on.
