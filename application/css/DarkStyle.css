@@ -58,10 +58,9 @@ html * {
 .reviewTextContainer {
 	float: left;
 	background-color: var(--container-light);
-	margin: 1% 1% 1% 1%;
-	padding: 1% 1% 1% 1%;
+	margin: 1% 1% 1% 0;
 	display: inline-block;
-	width: 75%;
+	width: 77%;
 }
 
 .textContainer {
@@ -105,6 +104,22 @@ html * {
 	height: auto;
 }
 
+.commentsContainerOuter {
+	clear: both;
+	float: left;
+	margin: 0% 1% 1%;
+	background-color: var(--container-light);
+	width: 98%;
+}
+
+.commentsContainerInner {
+	float: left;
+	margin: 1%;
+	background-color: var(--container-dark);
+	padding: 1% 1% 1% 1%;
+	width: 98%;
+}
+
 .container {
 	margin-left: auto;
 	margin-right: auto;
@@ -116,7 +131,7 @@ p {
 }
 
 h1 {
-	padding-top: 1%;
+	padding: 0;
 	width: 100vw;
 	text-align: center;
 	color: var(--title);
@@ -383,5 +398,12 @@ body {
 
 #downloadChat {
 	float: left;
+	margin: 1%;
+}
+
+#commentsDisabledMessage {
+	background-color: var(--container-dark);
+	color: var(--p-text);
+	padding: 1%;
 	margin: 1%;
 }

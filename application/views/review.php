@@ -93,27 +93,45 @@
 		$gameName = $review->GameName;
 		$gameBlurb = $review->GameBlurb;
 		$gameReview = $review->GameReview;
-		$gameComments = $review->GameComments_YN;
 		$gameImage = $review->ReviewImage;
+		$_SESSION['gameComments'] = $review->GameComments;
 		$imagePath = base_url() . "application/images/" . $gameImage;
 		echo <<<_END
-
-	<h1>$gameName</h1>
-	<div class="reviewImageContainer rounded" id="reviewImageContainer">
-		<img src="$imagePath" alt="Poster image for $gameName" class="reviewImage rounded">
-	</div>
-	
-	<div class="reviewTextContainer rounded">
-		<div class="textContainer rounded" id="gameBlurb">
-			<p><i>$gameBlurb</i></p>
+		<h1>$gameName</h1>
+		<div class="reviewImageContainer rounded" id="reviewImageContainer">
+			<img src="$imagePath" alt="Poster image for $gameName" class="reviewImage rounded">
 		</div>
-		<div class="textContainer rounded" id="reviewText">
-			<p>$gameReview</p>
+		
+		<div class="reviewTextContainer rounded">
+			<div class="textContainer rounded" id="gameBlurb">
+				<p><i>$gameBlurb</i></p>
+			</div>
+			<div class="textContainer rounded" id="reviewText">
+				<p>$gameReview</p>
+			</div>
 		</div>
-	</div>
 _END;
+		break;
 	}
 	?>
+
+</div>
+
+<div class="commentsContainerOuter rounded">
+
+	<?php
+
+	if ($_SESSION['gameComments'] == 0) {
+		echo "<h3 id='commentsDisabledMessage' class='rounded'>Comments are disabled for this review </h3>";
+	} else {
+		echo <<<_END
+		<div class="commentsContainerInner rounded">
+		</div>
+_END;
+	}
+
+	?>
+
 
 </div>
 

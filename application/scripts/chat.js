@@ -1,4 +1,5 @@
 $(document).ready(function () {
+	var chatContainer = document.getElementById("sendMessageContainer");
 	// connect to the socket.IO server
 	var socket = io.connect("http://localhost:8080");
 	var connectionFailed = false;
@@ -45,7 +46,6 @@ $(document).ready(function () {
 	socket.on('connect_error', function () {
 
 		if (!connectionFailed) {
-			var chatContainer = document.getElementById("sendMessageContainer");
 			chatContainer.style.display = "none";
 
 			console.log("Cannot connect to server");
