@@ -10,9 +10,9 @@ class Home_Model extends CI_Model {
 		$query=null;
 
 		if ($gameName != "") {
-			$query = $this->db->query("SELECT * FROM activereviews WHERE GameName LIKE '%$gameName%'");
+			$query = $this->db->query("SELECT * FROM activereviews WHERE GameName LIKE '%$gameName%' ORDER BY GameName ASC");
 		} else {
-			$query = $this->db->query("SELECT * FROM activereviews");
+			$query = $this->db->query("SELECT * FROM activereviews ORDER BY ID ASC");
 		}
 
 		return $query->result();
