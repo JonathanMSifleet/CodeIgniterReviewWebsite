@@ -14,13 +14,15 @@
 	<!-- CSS -->
 	<link id="pagestyle" rel="stylesheet" href="<?php echo base_url() . 'application/css/DarkStyle.css'; ?>">
 
-	<script src="<?php echo base_url() . 'application/scripts/ChangeTheme.js'; ?>"></script>
-
-
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+
+	<!-- my scripts -->
+	<script src="<?php echo base_url() . 'application/scripts/ChangeTheme.js'; ?>"></script>
+	<script src="<?php echo base_url() . 'application/scripts/JumpToComments.js'; ?>"></script>
+
 
 	<title><?php foreach ($gameReview as $review) {
 			echo $review->GameName . " Review";
@@ -97,7 +99,11 @@
 		$_SESSION['gameComments'] = $review->GameComments;
 		$imagePath = base_url() . "application/images/" . $gameImage;
 		echo <<<_END
-		<h1>$gameName</h1>
+		<div clas="reviewTitle">
+			<button type="button" class="btn btn-light" id="jumpToComments">Jump to comments</button>
+			<h1>$gameName</h1>	
+		</div>
+		
 		<div class="reviewImageContainer rounded" id="reviewImageContainer">
 			<img src="$imagePath" alt="Poster image for $gameName" class="reviewImage rounded">
 		</div>
@@ -117,7 +123,7 @@ _END;
 
 </div>
 
-<div class="commentsContainerOuter rounded">
+<div class="commentsContainerOuter rounded" id="commentsContainer">
 
 	<?php
 

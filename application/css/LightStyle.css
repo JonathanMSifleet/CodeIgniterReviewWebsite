@@ -419,3 +419,21 @@ body {
 	padding: 1%;
 	margin: 1%;
 }
+
+.reviewTitle {
+	margin: 0;
+	padding: 0;
+}
+
+#jumpToComments {
+	background-color: var(--buttonBackground) !important;
+	margin: 0 0 0 1%;
+	line-height: 1.5;
+	display: inline-block;
+	vertical-align: middle;
+	color: black;
+	float: left;
+	display: inline;
+	vertical-align: middle;
+	height: 5%;
+}

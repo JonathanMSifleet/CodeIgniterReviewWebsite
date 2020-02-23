@@ -3,15 +3,6 @@ if (localStorage.getItem("theme") === null) {
 	localStorage.setItem("theme", "dark");
 }
 
-/* jQuery method:
-
-$(document).ready(function () {
-	$('#changeThemeButton').click(function () {
-		$('link[rel=pagestyle]').attr({'href': '/application/css/LightStyle.css'});
-		console.log("Button pressed");
-	});
-}); */
-
 // pure js method:
 document.addEventListener("DOMContentLoaded", initialiseWebPage)
 
