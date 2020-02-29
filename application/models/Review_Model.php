@@ -38,7 +38,7 @@ class Review_Model extends CI_Model {
 
 	public function getComments() {
 
-		$query = $this->db->query("SELECT * FROM gamescomments WHERE ReviewID = {$_SESSION['reviewID']} ORDER BY TimeStamp DESC;");
+		$query = $this->db->query("SELECT UID, UserComment, TimeStamp, UserName FROM gamescomments INNER JOIN users USING(UserID) WHERE ReviewID = {$_SESSION['reviewID']} ORDER BY TimeStamp ASC;");
 		return $query->result();
 
 	}
