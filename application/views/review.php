@@ -17,12 +17,14 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 
 	<!-- my scripts -->
 	<script src="<?php echo base_url() . 'application/scripts/ChangeTheme.js'; ?>"></script>
 	<script src="<?php echo base_url() . 'application/scripts/JumpToComments.js'; ?>"></script>
 
+	<!-- Vue -->
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+	<script src="<?php echo base_url() . 'application/scripts/LoadCommentsVue.js'; ?>"></script>
 
 	<title><?php foreach ($gameReview as $review) {
 			echo $review->GameName . " Review";
@@ -158,6 +160,9 @@ _END;
 _END;
 				echo <<<_END
 		<div class="commentsContainerInner rounded">
+			<div id="commentsSection">
+			
+			</div>
 		</div>
 _END;
 			}
@@ -180,6 +185,7 @@ _END;
 			</div>
 		</div>
 	</div>
+
 </footer>
 
 </html>

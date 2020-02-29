@@ -44,5 +44,4 @@ class Sign_Up_Controller extends CI_Controller {
 		return password_hash($input, PASSWORD_BCRYPT); // leave third parameter empty to generate random salt every time
 	}
 
-
 }

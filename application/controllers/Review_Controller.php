@@ -32,4 +32,13 @@ class Review_Controller extends CI_Controller {
 		redirect($previousLink);
 
 	}
+
+	public function getComments() {
+
+		$comments = $this->Review_Model->getComments($_SESSION['reviewID']);
+
+		echo json_encode($comments);
+
+	}
+
 }
