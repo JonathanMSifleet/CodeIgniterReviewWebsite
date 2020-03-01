@@ -9,4 +9,8 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Vue -->
+	<script src="<?php echo base_url() . 'application/scripts/LoadCommentsVue.js'; ?>"></script>
+
 </footer>

@@ -13,6 +13,9 @@
 	<!-- CSS -->
 	<link id="pagestyle" rel="stylesheet" href="<?php echo base_url() . 'application/css/DarkStyle.css'; ?>">
 
+	<!-- libraries -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -20,10 +23,8 @@
 	<!-- my scripts -->
 	<script src="<?php echo base_url() . 'application/scripts/ChangeTheme.js'; ?>"></script>
 	<script src="<?php echo base_url() . 'application/scripts/JumpToComments.js'; ?>"></script>
-
-	<!-- Vue -->
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
-	<script src="<?php echo base_url() . 'application/scripts/LoadCommentsVue.js'; ?>"></script>
+	<script src="<?php echo base_url() . 'application/scripts/chat.js'; ?>"></script>
+	<script type="text/javascript" src="<?php echo base_url() . 'application/scripts/DownloadChat.js'; ?>"></script>
 
 </head>
 
