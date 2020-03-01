@@ -173,7 +173,8 @@ body {
 #changeThemeButton {
 	float: right;
 	padding: 1%;
-	margin-left: 1%;
+	margin: 0;
+	height: 5vh;
 	color: var(--buttonBackground) !important;
 	border-color: var(--buttonBackground) !important;
 }
