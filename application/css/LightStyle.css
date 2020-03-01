@@ -37,8 +37,8 @@ html * {
 }
 
 .cardContainer {
-	margin: 1% 1% 1% 1%;
-	padding: 1% 1% 1% 1%;
+	margin: 1%;
+	padding: 1%;
 	width: 18vw;
 	background-color: var(--container-dark);
 	overflow: auto;
@@ -51,7 +51,7 @@ nav {
 
 .navbar {
 	background-color: var(--container-dark) !important;
-	margin: 1% 1% 1% 1%;
+	margin: 1%;
 	box-shadow: 0 0 5px 5px var(--box-shadow);
 }
 
@@ -69,15 +69,15 @@ nav {
 
 .textContainer {
 	float: left;
-	margin: 1% 1% 1% 1%;
+	margin: 1%;
 	background-color: var(--container-light);
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 	display: inline-block;
 }
 
 .reviewImageContainer {
-	margin: 1% 1% 1% 1%;
-	padding: 1% 1% 1% 1%;
+	margin: 1%;
+	padding: 1%;
 	width: 20%;
 	background-color: var(--container-dark);
 	float: left;
@@ -118,9 +118,9 @@ nav {
 
 .commentsContainerInner {
 	float: left;
-	margin: 1%;
+	margin: 0 1% 1%;
 	background-color: var(--container-light);
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 	width: 98%;
 }
 
@@ -169,7 +169,7 @@ body {
 
 #changeThemeButton {
 	float: right;
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 	margin-left: 1%;
 	color: var(--buttonBackground) !important;
 	border-color: var(--buttonBackground) !important;
@@ -203,12 +203,12 @@ body {
 
 .footerImageContainer {
 	margin: 0;
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 }
 
 #mmuLogo {
 	margin: 0;
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 	height: 100%;
 	width: auto;
 	float: left;
@@ -219,7 +219,7 @@ body {
 	float: left;
 	margin: 0;
 	background-color: var(--container-light);
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 }
 
 #gitHubLink {
@@ -244,13 +244,13 @@ body {
 
 .loginContainerOuter {
 	width: 100%;
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 }
 
 .loginContainerInner {
 	background-color: var(--container-dark);
 	margin: 0 auto;
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 	width: 40vw;
 	height: auto;
 	overflow: hidden;
@@ -263,7 +263,7 @@ body {
 	align: centre;
 	width: 100%;
 	height: auto;
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 	clear: both;
 }
 
@@ -282,7 +282,7 @@ body {
 	width: auto;
 	color: var(--p-text);
 	display: inline-block;
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 	margin: 1% 0 0;
 	text-align: center;
 	background-color: var(--container-dark);

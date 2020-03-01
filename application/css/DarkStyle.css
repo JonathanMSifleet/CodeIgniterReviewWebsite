@@ -37,22 +37,18 @@ html * {
 }
 
 .cardContainer {
-	margin: 1% 1% 1% 1%;
-	padding: 1% 1% 1% 1%;
+	margin: 1%;
+	padding: 1%;
 	width: 18vw;
 	background-color: var(--container-dark);
 	overflow: auto;
 	float: left;
 }
 
-nav {
-	height: 10vh;
-}
-
 .navbar {
 	background-color: var(--container-dark) !important;
-	margin: 1% 1% 1% 1%;
-	box-shadow: 0 0 5px 5px #808080;
+	height: 8vh;
+	margin-bottom: 1%;
 }
 
 #review {
@@ -69,15 +65,15 @@ nav {
 
 .textContainer {
 	float: left;
-	margin: 1% 1% 1% 1%;
+	margin: 1%;
 	background-color: var(--container-dark);
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 	display: inline-block;
 }
 
 .reviewImageContainer {
-	margin: 1% 1% 1% 1%;
-	padding: 1% 1% 1% 1%;
+	margin: 1%;
+	padding: 1%;
 	width: 20%;
 	background-color: var(--container-light);
 	float: left;
@@ -118,9 +114,9 @@ nav {
 
 .commentsContainerInner {
 	float: left;
-	margin: 1%;
+	margin: 0 1% 1%;
 	background-color: var(--container-dark);
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 	width: 98%;
 }
 
@@ -160,8 +156,8 @@ body {
 
 #changeThemeButton {
 	float: right;
-	padding: 1% 1% 1% 1%;
-	margin-left: 1%;
+	padding: 1%;
+	margin: 0;
 }
 
 #reviewButton {
@@ -192,12 +188,12 @@ body {
 
 .footerImageContainer {
 	margin: 0;
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 }
 
 #mmuLogo {
 	margin: 0;
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 	height: 100%;
 	width: auto;
 	float: left;
@@ -208,7 +204,7 @@ body {
 	float: left;
 	margin: 0;
 	background-color: var(--container-light);
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 }
 
 #gitHubLink {
@@ -233,13 +229,13 @@ body {
 
 .loginContainerOuter {
 	width: 100%;
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 }
 
 .loginContainerInner {
 	background-color: var(--container-light);
 	margin: 0 auto;
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 	width: 40vw;
 	height: auto;
 	overflow: hidden;
@@ -252,7 +248,7 @@ body {
 	align: centre;
 	width: 100%;
 	height: auto;
-	padding: 1% 1% 1% 1%;
+	padding: 1%;
 	clear: both;
 }
 
@@ -465,4 +461,11 @@ body {
 
 #searchButton {
 	display: none;
+}
+
+#searchForm {
+	margin-top: 1%;
+	width: 14vw;
+	margin-left: auto;
+	margin-right: auto;
 }

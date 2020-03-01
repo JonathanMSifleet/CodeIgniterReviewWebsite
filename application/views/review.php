@@ -70,15 +70,15 @@ _END;
 				</form>	
 			</div>
 _END;
-				echo <<<_END
+			}
+		}
+		echo <<<_END
 		<div class="commentsContainerInner rounded">
 			<div id="commentsSection">
 			
 			</div>
 		</div>
 _END;
-			}
-		}
 	}
 
 	?>
