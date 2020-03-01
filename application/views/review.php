@@ -62,14 +62,14 @@ _END;
 				$curDate = date("Y-m-d H:i:s", time());
 				echo <<<_END
 			<div class="postCommentContainer rounded">
-			<form method="post" action="$action" id="postCommentForm">
+				<form method="post" action="$action" id="postCommentForm">
 					<div class="form-group">
-						<input type="text" name="commentInput" class="form-control" id="inputComment"
+						<input type="text" name="commentInput" class="form-control" id="commentInput"
 						       placeholder="Enter comment">
-      					<input type="hidden" name="username" id="username" value="$username">
-       					<input type="hidden" name="reviewID" id="reviewID" value="{$_SESSION['reviewID']}">
-       					<input type="hidden" name="currentURL" id="currentURL" value="$currentURL">
-       					<input type="hidden" name="timeStamp" id="timeStamp" value="$curDate">
+                        <input type="hidden" name="username" id="username" value="$username">
+                        <input type="hidden" name="reviewID" id="reviewID" value="{$_SESSION['reviewID']}">
+                        <input type="hidden" name="currentURL" id="currentURL" value="$currentURL">
+                        <input type="hidden" name="timeStamp" id="timeStamp" value="$curDate">
 					</div>
 					<button id="submitCommentButton" type="submit" class="btn btn-primary">Submit</button>
 				</form>	
