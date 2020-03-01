@@ -1,11 +1,10 @@
 <html>
 
-<title>Sign up/title>
+<title>Sign up</title>
 
 <body>
 
-<div class="loginContainerOuter">
-	<div class="loginContainerInner rounded">
+<div class="loginContainer rounded">
 		<div class="loginContainerContent rounded">
 
 			<div class="titleWrapper">
@@ -36,7 +35,6 @@
 			</form>
 		</div>
 	</div>
-</div>
 
 </body>
 
