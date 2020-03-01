@@ -17,7 +17,7 @@ class Chat_Server_Controller extends CI_Controller {
 	}
 
 	public function loadChatServerView() {
-
+		$data['page'] = "chat_server";
 		$data['bodyContent'] = 'chat_server';
 		$this->load->view('template', $data);
 	}

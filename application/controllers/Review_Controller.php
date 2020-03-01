@@ -13,6 +13,7 @@ class Review_Controller extends CI_Controller {
 
 		$data['gameReview'] = $this->Review_Model->getReviewData($slug);
 		$data['bodyContent'] = 'review';
+		$data['page'] = 'review';
 
 		$this->load->view('template', $data);
 	}

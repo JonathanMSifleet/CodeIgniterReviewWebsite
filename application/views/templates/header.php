@@ -22,11 +22,29 @@
 
 	<!-- my scripts -->
 	<script src="<?php echo base_url() . 'application/scripts/ChangeTheme.js'; ?>"></script>
-	<script src="<?php echo base_url() . 'application/scripts/JumpToComments.js'; ?>"></script>
-	<script src="<?php echo base_url() . 'application/scripts/chat.js'; ?>"></script>
-	<script type="text/javascript" src="<?php echo base_url() . 'application/scripts/DownloadChat.js'; ?>"></script>
 
 </head>
+
+<?php
+switch ($page) {
+	case "chat_server" :
+		$chatSource = base_url("application/scripts/chat.js");
+		$downloadChat = base_url("application/scripts/DownloadChat.js");
+		echo <<<_END
+				<script src=$chatSource></script>
+				<script type="text/javascript" src=$downloadChat></script>
+_END;
+		break;
+	case "review":
+		$jumpToComments = base_url("application/scripts/JumpToComments.js");
+		$loadComments = base_url("application/scripts/LoadCommentsVue.js");
+		echo <<<_END
+			<script src=$jumpToComments></script>"
+			<script src=$loadComments></script>
+_END;
+		break;
+}
+?>
 
 <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark" id="navbar">
 	<span class="navbar-brand">1CKW50</span>
@@ -42,9 +60,6 @@
 			</li>
 			<li class="nav-item active">
 				<a class="nav-link rounded" href='<?php echo base_url() . "ChatServer"; ?>'>Chat server <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item active">
-				<a class="nav-link rounded" href='http://localhost:82/phpmyadmin'>PHPMyAdmin <span class="sr-only">(current)</span></a>
 			</li>
 		</ul>
 	</div>
@@ -83,6 +98,5 @@
 		</li>
 
 	</ul>
-
 
 </nav>

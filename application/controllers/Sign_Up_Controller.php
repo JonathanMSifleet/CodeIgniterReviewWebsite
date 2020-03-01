@@ -20,6 +20,7 @@ class Sign_Up_Controller extends CI_Controller {
 	public function loadSignUpView() {
 
 		$data['bodyContent'] = 'sign_up';
+		$data['page'] = 'sign_up';
 
 		$this->load->view('template', $data);
 	}
@@ -38,7 +39,10 @@ class Sign_Up_Controller extends CI_Controller {
 			redirect(base_url());
 		} else {
 			$data['accountExists'] = true;
-			$this->load->view('sign_up', $data);
+			$data['page'] = 'sign_up';
+			$data['bodyContent'] = 'sign_up';
+
+			$this->load->view('template', $data);
 		}
 
 	}

@@ -20,6 +20,7 @@ class Sign_In_Controller extends CI_Controller {
 	public function loadSignInView() {
 
 		$data['bodyContent'] = 'sign_in';
+		$data['page'] = 'sign_in';
 
 		$this->load->view('template', $data);
 	}

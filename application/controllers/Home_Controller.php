@@ -27,6 +27,7 @@ class Home_Controller extends CI_Controller {
 
 		//Load the view and send the data across.
 		$data['bodyContent'] = 'home';
+		$data['page'] = "home";
 		$this->load->view('template', $data);
 
 	}
@@ -45,6 +46,8 @@ class Home_Controller extends CI_Controller {
 
 		//Load the view and send the data across.
 		$data['bodyContent'] = 'home';
+
+		$data['page'] = 'home';
 
 		$this->load->view('template', $data);
 	}

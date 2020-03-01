@@ -109,16 +109,16 @@ html * {
 .commentsContainerOuter {
 	clear: both;
 	float: left;
-	margin: 0% 1% 1%;
 	background-color: var(--container-light);
 	width: 98%;
+	margin: 0% 1% 9vh;
 }
 
 .commentsContainerInner {
 	float: left;
 	margin: 0 1% 1%;
 	background-color: var(--container-dark);
-	padding: 1%;
+	padding: 1% 1% 0;
 	width: 98%;
 }
 
@@ -299,11 +299,11 @@ body {
 
 .chatSpaceContainerOuter {
 	background-color: var(--container-light);
-	margin: 1%;
 	padding: 1%;
 	width: auto;
 	clear: both;
 	overflow: auto;
+	margin: 1% 1% 9vh;
 }
 
 .chatRoomContainer {
@@ -326,9 +326,9 @@ body {
 	background-color: var(--container-dark);
 	margin-bottom: 1%;
 	margin-left: 1%;
-	margin-right: 1%;
+	margin-right: 0%;
 	padding: 1%;
-	width: 90%;
+	width: 91%;
 	float: left;
 	height: auto;
 }
