@@ -40,11 +40,13 @@ class Sign_In_Controller extends CI_Controller {
 			break;
 		}
 
-		echo ($isUserAdmin);
-
 		if (empty($loginAttempt)) {
 			$data['message'] = "Username not found";
-			$this->load->view('sign_in', $data);
+
+			$data['bodyContent'] = 'sign_in';
+			$data['page'] = 'sign_in';
+
+			$this->load->view('template', $data);
 		} else {
 			$userPasswordHash = null;
 
@@ -64,7 +66,11 @@ class Sign_In_Controller extends CI_Controller {
 				redirect(base_url());
 			} else {
 				$data['message'] = "Password is incorrect";
-				$this->load->view('sign_in', $data);
+
+				$data['bodyContent'] = 'sign_in';
+				$data['page'] = 'sign_in';
+
+				$this->load->view('template', $data);
 			}
 		}
 	}
