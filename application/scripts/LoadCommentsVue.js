@@ -8,15 +8,15 @@ var app = new Vue({
 	},
 	methods: {
 		asyncLoadComments: async function () {
-			const result = await this.waitThreeSeconds();
+			const result = await this.refreshScript();
 			app.fetchComments();
 			app.asyncLoadComments();
 		},
-		waitThreeSeconds: function () {
+		refreshScript: function () {
 			return new Promise(resolve => {
 				setTimeout(() => {
 					resolve('resolved');
-				}, 3000);
+				}, 750);
 			});
 		},
 		fetchComments: function () {
