@@ -45,15 +45,11 @@ html * {
 	float: left;
 }
 
-nav {
-	height: 10vh;
-}
-
 .navbar {
 	background-color: var(--container-dark) !important;
-	height: 8vh;
+	height: 7vh;
 	width: 100%;
-	margin: 1%;
+	margin-bottom: 1%;
 	box-shadow: 0 0 10px 10px var(--box-shadow);
 }
 
@@ -158,6 +154,7 @@ navbar-brand {
 
 .container-fluid {
 	margin-top: 1vh;
+	margin-bottom: 7vh;
 	width: auto;
 	background-color: var(--body);
 }
@@ -185,7 +182,7 @@ body {
 	float: left;
 	padding: 0;
 	width: 100%;
-	height: 10vh;
+	height: 7vh;
 	background-color: var(--container-dark);
 	margin: 0;
 	box-shadow: 0 0 10px 10px var(--box-shadow);
@@ -204,7 +201,7 @@ body {
 
 .footerImageContainer {
 	margin: 0;
-	padding: 1%;
+	padding: 1% 1% 1% 0.5%;
 }
 
 #mmuLogo {
@@ -216,15 +213,28 @@ body {
 	align-self: center;
 }
 
-.gitHubContainer {
+.gitHubContainerOuter {
+	margin: 0;
+	padding: 0.5%;
+	height: 5vh;
+	background-color: var(--container-light);
+	float: left;
+	display: flex;
+	align-items: center;
+}
+
+.gitHubContainerInner {
 	float: left;
 	margin: 0;
-	background-color: var(--container-light);
-	padding: 1%;
+	padding: 0;
+	height: 5vh;
+	display: flex;
+	white-space: nowrap;
 }
 
 #gitHubLink {
-	width: 100%;
+	margin: auto;
+	text-align: center;
 }
 
 #gitHubLink, #gitHubLink:active, #gitHubLink:focus, #gitHubLink:visited {
