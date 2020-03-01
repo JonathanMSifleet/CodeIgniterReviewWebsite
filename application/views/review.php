@@ -58,11 +58,10 @@ _END;
 			} else {
 				$username = $_SESSION['loggedInUsername'];
 				$currentURL = $_SERVER['REQUEST_URI'];
-				$action = $currentURL . '/PostComment';
 				$curDate = date("Y-m-d H:i:s", time());
 				echo <<<_END
 	<div class="postCommentContainer rounded">
-		<form method="post" action="$action" id="postCommentForm">
+		<form method="post" action="" id="postCommentForm">
 			<div class="form-group">
 				<input type="text" name="commentInput" class="form-control" id="commentInput"
 				       placeholder="Enter comment">
@@ -71,7 +70,7 @@ _END;
                 <input type="hidden" name="currentURL" id="currentURL" value="$currentURL">
                 <input type="hidden" name="timeStamp" id="timeStamp" value="$curDate">
 			</div>
-			<button id="submitCommentButton" type="submit" class="btn btn-primary">Submit</button>
+			<button id="submitCommentButton" type="submit" name="submitCommentButton" class="btn btn-primary">Submit</button>
 		</form>	
 	</div>
 _END;
@@ -90,5 +89,40 @@ _END;
 </div>
 
 </body>
+
+<script>
+	$(function () {
+		$("#submitCommentButton").click(function (e) {
+			e.preventDefault();
+
+			var commentInput = $("#commentInput").val();
+			var username = $("#username").val();
+			var reviewID = $("#reviewID").val();
+			var currentURL = $("#currentURL").val();
+			var timeStamp = $("#timeStamp").val();
+
+			var URL = "<?php echo base_url();?>PostComment";
+
+			$.ajax(
+				{
+					type: "post",
+					url: URL,
+					data: {
+						commentInput: commentInput,
+						username: username,
+						reviewID: reviewID,
+						currentURL: currentURL,
+						timeStamp: timeStamp
+					},
+					success: function () {
+						$("#postCommentForm").each(function() {
+							this.reset();
+						});
+					}
+				}
+			);
+		});
+	});
+</script>
 
 </html>
