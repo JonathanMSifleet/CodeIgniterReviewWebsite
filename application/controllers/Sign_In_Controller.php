@@ -18,7 +18,10 @@ class Sign_In_Controller extends CI_Controller {
 	}
 
 	public function loadSignInView() {
-		$this->load->view('sign_in');
+
+		$data['bodyContent'] = 'sign_in';
+
+		$this->load->view('template', $data);
 	}
 
 	public function attemptSignIn() {

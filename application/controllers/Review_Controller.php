@@ -11,9 +11,10 @@ class Review_Controller extends CI_Controller {
 
 	public function review($slug) {
 
-		$reviewData['gameReview'] = $this->Review_Model->getReviewData($slug);
+		$data['gameReview'] = $this->Review_Model->getReviewData($slug);
+		$data['bodyContent'] = 'review';
 
-		$this->load->view('review', $reviewData);
+		$this->load->view('template', $data);
 	}
 
 	public function postComment() {

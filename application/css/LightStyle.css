@@ -45,6 +45,10 @@ html * {
 	float: left;
 }
 
+nav {
+	height: 10vh;
+}
+
 .navbar {
 	background-color: var(--container-dark) !important;
 	margin: 1% 1% 1% 1%;
@@ -356,7 +360,8 @@ body {
 	padding: 1%;
 	margin: 0;
 	background-color: var(--container-dark);
-	width: 89%;
+	white-space: nowrap;
+	width: auto;
 	height: auto;
 	float: left;
 }

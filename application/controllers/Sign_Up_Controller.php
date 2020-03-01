@@ -18,7 +18,10 @@ class Sign_Up_Controller extends CI_Controller {
 	}
 
 	public function loadSignUpView() {
-		$this->load->view('sign_up');
+
+		$data['bodyContent'] = 'sign_up';
+
+		$this->load->view('template', $data);
 	}
 
 	public function attemptSignUp() {
