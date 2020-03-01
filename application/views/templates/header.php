@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css">
 
 	<!-- CSS -->
-	<link id="pagestyle" rel="stylesheet" href="<?php echo base_url() . 'application/css/DarkStyle.css'; ?>">
+	<link id="pagestyle" rel="stylesheet" href="<?php echo base_url('application/css/DarkStyle.css'); ?>">
 
 	<!-- libraries -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
@@ -21,7 +21,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 	<!-- my scripts -->
-	<script src="<?php echo base_url() . 'application/scripts/ChangeTheme.js'; ?>"></script>
+	<script src="<?php echo base_url('application/scripts/ChangeTheme.js'); ?>"></script>
 
 </head>
 
@@ -39,7 +39,7 @@ _END;
 		$jumpToComments = base_url("application/scripts/JumpToComments.js");
 		$loadComments = base_url("application/scripts/LoadCommentsVue.js");
 		echo <<<_END
-			<script src=$jumpToComments></script>"
+			<script src=$jumpToComments></script>
 			<script src=$loadComments></script>
 _END;
 		break;
@@ -59,7 +59,7 @@ _END;
 				<a class="nav-link rounded" href='<?php echo base_url(); ?>'>Home <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item active">
-				<a class="nav-link rounded" href='<?php echo base_url() . "ChatServer"; ?>'>Chat server <span class="sr-only">(current)</span></a>
+				<a class="nav-link rounded" href='<?php echo base_url("ChatServer"); ?>'>Chat server <span class="sr-only">(current)</span></a>
 			</li>
 		</ul>
 	</div>
