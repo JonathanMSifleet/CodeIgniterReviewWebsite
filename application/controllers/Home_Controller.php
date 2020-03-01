@@ -28,6 +28,7 @@ class Home_Controller extends CI_Controller {
 		//Load the view and send the data across.
 		$data['bodyContent'] = 'home';
 		$this->load->view('template', $data);
+
 	}
 
 	public function searchReview($gameName) {
@@ -43,7 +44,9 @@ class Home_Controller extends CI_Controller {
 		$data['result'] = $this->Home_Model->getGame($gameName);
 
 		//Load the view and send the data across.
-		$this->load->view('home', $data);
+		$data['bodyContent'] = 'home';
+
+		$this->load->view('template', $data);
 	}
 
 	public function review($slug = NULL) {

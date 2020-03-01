@@ -4,6 +4,11 @@
 
 <h1>Jonathan's Game Review Website - 1CKW50</h1>
 
+<form class="form" method="post" action="Search" id="searchForm">
+	<input class="form-control mr-sm-2" type="search" name="searchTerm" placeholder="Search reviews" aria-label="Search">
+	<button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchButton">Search</button>
+</form>
+
 <div class="container-fluid">
 	<div class="row justify-content-center">
 		<?php
