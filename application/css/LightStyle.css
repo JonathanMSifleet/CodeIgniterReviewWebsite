@@ -53,6 +53,10 @@ html * {
 	box-shadow: 0 0 10px 10px var(--box-shadow);
 }
 
+.navbar-brand {
+	color: #000 !important;
+}
+
 #review {
 	width: 100%;
 }
