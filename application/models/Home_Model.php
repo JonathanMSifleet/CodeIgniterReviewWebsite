@@ -7,7 +7,7 @@ class Home_Model extends CI_Model {
 	}
 
 	public function getGame($gameName) {
-		$query=null;
+		$query = null;
 
 		if ($gameName != "") {
 			$query = $this->db->query("SELECT * FROM activereviews WHERE GameName LIKE '%$gameName%' ORDER BY GameName ASC");

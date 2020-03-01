@@ -297,6 +297,26 @@ class CI_DB_postgre_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
+	 * "Smart" Escape String
+	 *
+	 * Escapes data based on type
+	 *
+	 * @param string $str
+	 * @return    mixed
+	 */
+	public function escape($str) {
+		if (is_php('5.4.4') && (is_string($str) OR (is_object($str) && method_exists($str, '__toString')))) {
+			return pg_escape_literal($this->conn_id, $str);
+		} elseif (is_bool($str)) {
+			return ($str) ? 'TRUE' : 'FALSE';
+		}
+
+		return parent::escape($str);
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
 	 * Error
 	 *
 	 * Returns an array containing code and message of the last
@@ -444,26 +464,6 @@ class CI_DB_postgre_driver extends CI_DB {
 		return 'SELECT "column_name"
 			FROM "information_schema"."columns"
 			WHERE LOWER("table_name") = ' . $this->escape(strtolower($table));
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * "Smart" Escape String
-	 *
-	 * Escapes data based on type
-	 *
-	 * @param string $str
-	 * @return    mixed
-	 */
-	public function escape($str) {
-		if (is_php('5.4.4') && (is_string($str) OR (is_object($str) && method_exists($str, '__toString')))) {
-			return pg_escape_literal($this->conn_id, $str);
-		} elseif (is_bool($str)) {
-			return ($str) ? 'TRUE' : 'FALSE';
-		}
-
-		return parent::escape($str);
 	}
 
 	// --------------------------------------------------------------------

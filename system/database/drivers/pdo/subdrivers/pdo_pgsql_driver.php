@@ -217,6 +217,24 @@ class CI_DB_pdo_pgsql_driver extends CI_DB_pdo_driver {
 	// --------------------------------------------------------------------
 
 	/**
+	 * "Smart" Escape String
+	 *
+	 * Escapes data based on type
+	 *
+	 * @param string $str
+	 * @return    mixed
+	 */
+	public function escape($str) {
+		if (is_bool($str)) {
+			return ($str) ? 'TRUE' : 'FALSE';
+		}
+
+		return parent::escape($str);
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
 	 * Show table query
 	 *
 	 * Generates a platform-specific query string so that the table names can be fetched
@@ -250,24 +268,6 @@ class CI_DB_pdo_pgsql_driver extends CI_DB_pdo_driver {
 		return 'SELECT "column_name"
 			FROM "information_schema"."columns"
 			WHERE LOWER("table_name") = ' . $this->escape(strtolower($table));
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * "Smart" Escape String
-	 *
-	 * Escapes data based on type
-	 *
-	 * @param string $str
-	 * @return    mixed
-	 */
-	public function escape($str) {
-		if (is_bool($str)) {
-			return ($str) ? 'TRUE' : 'FALSE';
-		}
-
-		return parent::escape($str);
 	}
 
 	// --------------------------------------------------------------------

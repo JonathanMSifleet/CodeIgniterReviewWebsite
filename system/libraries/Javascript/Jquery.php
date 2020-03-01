@@ -153,6 +153,26 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
+	 * Prep Element
+	 *
+	 * Puts HTML element in quotes for use in jQuery code
+	 * unless the supplied element is the Javascript 'this'
+	 * object, in which case no quotes are added
+	 *
+	 * @param string
+	 * @return    string
+	 */
+	protected function _prep_element($element) {
+		if ($element !== 'this') {
+			$element = '"' . $element . '"';
+		}
+
+		return $element;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
 	 * Modal window
 	 *
 	 * Load a thickbox modal window
@@ -283,26 +303,6 @@ class CI_Jquery extends CI_Javascript {
 		$event = "\n\t$(" . $this->_prep_element($element) . ').' . $event . "(function(){\n\t\t{$js}\n\t});\n";
 		$this->jquery_code_for_compile[] = $event;
 		return $event;
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * Prep Element
-	 *
-	 * Puts HTML element in quotes for use in jQuery code
-	 * unless the supplied element is the Javascript 'this'
-	 * object, in which case no quotes are added
-	 *
-	 * @param string
-	 * @return    string
-	 */
-	protected function _prep_element($element) {
-		if ($element !== 'this') {
-			$element = '"' . $element . '"';
-		}
-
-		return $element;
 	}
 
 	// --------------------------------------------------------------------

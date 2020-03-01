@@ -310,6 +310,78 @@ class CI_Encryption {
 	// --------------------------------------------------------------------
 
 	/**
+	 * Cipher alias
+	 *
+	 * Tries to translate cipher names between MCrypt and OpenSSL's "dialects".
+	 *
+	 * @param string $cipher Cipher name
+	 * @return    void
+	 */
+	protected function _cipher_alias(&$cipher) {
+		static $dictionary;
+
+		if (empty($dictionary)) {
+			$dictionary = array(
+				'mcrypt' => array(
+					'aes-128' => 'rijndael-128',
+					'aes-192' => 'rijndael-128',
+					'aes-256' => 'rijndael-128',
+					'des3-ede3' => 'tripledes',
+					'bf' => 'blowfish',
+					'cast5' => 'cast-128',
+					'rc4' => 'arcfour',
+					'rc4-40' => 'arcfour'
+				),
+				'openssl' => array(
+					'rijndael-128' => 'aes-128',
+					'tripledes' => 'des-ede3',
+					'blowfish' => 'bf',
+					'cast-128' => 'cast5',
+					'arcfour' => 'rc4-40',
+					'rc4' => 'rc4-40'
+				)
+			);
+
+			// Notes:
+			//
+			// - Rijndael-128 is, at the same time all three of AES-128,
+			//   AES-192 and AES-256. The only difference between them is
+			//   the key size. Rijndael-192, Rijndael-256 on the other hand
+			//   also have different block sizes and are NOT AES-compatible.
+			//
+			// - Blowfish is said to be supporting key sizes between
+			//   4 and 56 bytes, but it appears that between MCrypt and
+			//   OpenSSL, only those of 16 and more bytes are compatible.
+			//   Also, don't know what MCrypt's 'blowfish-compat' is.
+			//
+			// - CAST-128/CAST5 produces a longer cipher when encrypted via
+			//   OpenSSL, but (strangely enough) can be decrypted by either
+			//   extension anyway.
+			//   Also, it appears that OpenSSL uses 16 rounds regardless of
+			//   the key size, while RFC2144 says that for key sizes lower
+			//   than 11 bytes, only 12 rounds should be used. This makes
+			//   it portable only with keys of between 11 and 16 bytes.
+			//
+			// - RC4 (ARCFour) has a strange implementation under OpenSSL.
+			//   Its 'rc4-40' cipher method seems to work flawlessly, yet
+			//   there's another one, 'rc4' that only works with a 16-byte key.
+			//
+			// - DES is compatible, but doesn't need an alias.
+			//
+			// Other seemingly matching ciphers between MCrypt, OpenSSL:
+			//
+			// - RC2 is NOT compatible and only an obscure forum post
+			//   confirms that it is MCrypt's fault.
+		}
+
+		if (isset($dictionary[$this->_driver][$cipher])) {
+			$cipher = $dictionary[$this->_driver][$cipher];
+		}
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
 	 * HKDF
 	 *
 	 * @link    https://tools.ietf.org/rfc/rfc5869.txt
@@ -478,78 +550,6 @@ class CI_Encryption {
 			} else {
 				log_message('error', 'Encryption: Unable to initialize MCrypt with cipher ' . strtoupper($this->_cipher) . ' in ' . strtoupper($this->_mode) . ' mode.');
 			}
-		}
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * Cipher alias
-	 *
-	 * Tries to translate cipher names between MCrypt and OpenSSL's "dialects".
-	 *
-	 * @param string $cipher Cipher name
-	 * @return    void
-	 */
-	protected function _cipher_alias(&$cipher) {
-		static $dictionary;
-
-		if (empty($dictionary)) {
-			$dictionary = array(
-				'mcrypt' => array(
-					'aes-128' => 'rijndael-128',
-					'aes-192' => 'rijndael-128',
-					'aes-256' => 'rijndael-128',
-					'des3-ede3' => 'tripledes',
-					'bf' => 'blowfish',
-					'cast5' => 'cast-128',
-					'rc4' => 'arcfour',
-					'rc4-40' => 'arcfour'
-				),
-				'openssl' => array(
-					'rijndael-128' => 'aes-128',
-					'tripledes' => 'des-ede3',
-					'blowfish' => 'bf',
-					'cast-128' => 'cast5',
-					'arcfour' => 'rc4-40',
-					'rc4' => 'rc4-40'
-				)
-			);
-
-			// Notes:
-			//
-			// - Rijndael-128 is, at the same time all three of AES-128,
-			//   AES-192 and AES-256. The only difference between them is
-			//   the key size. Rijndael-192, Rijndael-256 on the other hand
-			//   also have different block sizes and are NOT AES-compatible.
-			//
-			// - Blowfish is said to be supporting key sizes between
-			//   4 and 56 bytes, but it appears that between MCrypt and
-			//   OpenSSL, only those of 16 and more bytes are compatible.
-			//   Also, don't know what MCrypt's 'blowfish-compat' is.
-			//
-			// - CAST-128/CAST5 produces a longer cipher when encrypted via
-			//   OpenSSL, but (strangely enough) can be decrypted by either
-			//   extension anyway.
-			//   Also, it appears that OpenSSL uses 16 rounds regardless of
-			//   the key size, while RFC2144 says that for key sizes lower
-			//   than 11 bytes, only 12 rounds should be used. This makes
-			//   it portable only with keys of between 11 and 16 bytes.
-			//
-			// - RC4 (ARCFour) has a strange implementation under OpenSSL.
-			//   Its 'rc4-40' cipher method seems to work flawlessly, yet
-			//   there's another one, 'rc4' that only works with a 16-byte key.
-			//
-			// - DES is compatible, but doesn't need an alias.
-			//
-			// Other seemingly matching ciphers between MCrypt, OpenSSL:
-			//
-			// - RC2 is NOT compatible and only an obscure forum post
-			//   confirms that it is MCrypt's fault.
-		}
-
-		if (isset($dictionary[$this->_driver][$cipher])) {
-			$cipher = $dictionary[$this->_driver][$cipher];
 		}
 	}
 

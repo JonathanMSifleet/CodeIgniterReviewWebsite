@@ -62,13 +62,13 @@ class CI_Email {
 	 * @var    string
 	 */
 	public $useragent = 'CodeIgniter';    // Sendmail path
-/**
+	/**
 	 * Path to the Sendmail binary.
 	 *
 	 * @var    string
 	 */
 	public $mailpath = '/usr/sbin/sendmail';        // mail/sendmail/smtp
-/**
+	/**
 	 * Which method to use for sending e-mails.
 	 *
 	 * @var    string    'mail', 'sendmail' or 'smtp'
@@ -153,13 +153,13 @@ class CI_Email {
 	 * @var    bool
 	 */
 	public $validate = FALSE;            // Default priority (1 - 5)
-/**
+	/**
 	 * X-Priority header value.
 	 *
 	 * @var    int    1-5
 	 */
 	public $priority = 3;            // Default newline. "\r\n" or "\n" (Use "\r\n" to comply with RFC 822)
-/**
+	/**
 	 * Newline character sequence.
 	 * Use "\r\n" to comply with RFC 822.
 	 *
@@ -1736,6 +1736,159 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
+	 * Send SMTP command
+	 *
+	 * @param string
+	 * @param string
+	 * @return    bool
+	 */
+	protected function _send_command($cmd, $data = '') {
+		switch ($cmd) {
+			case 'hello' :
+
+				if ($this->_smtp_auth OR $this->_get_encoding() === '8bit') {
+					$this->_send_data('EHLO ' . $this->_get_hostname());
+				} else {
+					$this->_send_data('HELO ' . $this->_get_hostname());
+				}
+
+				$resp = 250;
+				break;
+			case 'starttls'    :
+
+				$this->_send_data('STARTTLS');
+				$resp = 220;
+				break;
+			case 'from' :
+
+				$this->_send_data('MAIL FROM:<' . $data . '>');
+				$resp = 250;
+				break;
+			case 'to' :
+
+				if ($this->dsn) {
+					$this->_send_data('RCPT TO:<' . $data . '> NOTIFY=SUCCESS,DELAY,FAILURE ORCPT=rfc822;' . $data);
+				} else {
+					$this->_send_data('RCPT TO:<' . $data . '>');
+				}
+
+				$resp = 250;
+				break;
+			case 'data'    :
+
+				$this->_send_data('DATA');
+				$resp = 354;
+				break;
+			case 'reset':
+
+				$this->_send_data('RSET');
+				$resp = 250;
+				break;
+			case 'quit'    :
+
+				$this->_send_data('QUIT');
+				$resp = 221;
+				break;
+		}
+
+		$reply = $this->_get_smtp_data();
+
+		$this->_debug_msg[] = '<pre>' . $cmd . ': ' . $reply . '</pre>';
+
+		if ((int)self::substr($reply, 0, 3) !== $resp) {
+			$this->_set_error_message('lang:email_smtp_error', $reply);
+			return FALSE;
+		}
+
+		if ($cmd === 'quit') {
+			fclose($this->_smtp_connect);
+		}
+
+		return TRUE;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Send SMTP data
+	 *
+	 * @param string $data
+	 * @return    bool
+	 */
+	protected function _send_data($data) {
+		$data .= $this->newline;
+		for ($written = $timestamp = 0, $length = self::strlen($data); $written < $length; $written += $result) {
+			if (($result = fwrite($this->_smtp_connect, self::substr($data, $written))) === FALSE) {
+				break;
+			} // See https://bugs.php.net/bug.php?id=39598 and http://php.net/manual/en/function.fwrite.php#96951
+			elseif ($result === 0) {
+				if ($timestamp === 0) {
+					$timestamp = time();
+				} elseif ($timestamp < (time() - $this->smtp_timeout)) {
+					$result = FALSE;
+					break;
+				}
+
+				usleep(250000);
+				continue;
+			}
+
+			$timestamp = 0;
+		}
+
+		if ($result === FALSE) {
+			$this->_set_error_message('lang:email_smtp_data_failure', $data);
+			return FALSE;
+		}
+
+		return TRUE;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Get Hostname
+	 *
+	 * There are only two legal types of hostname - either a fully
+	 * qualified domain name (eg: "mail.example.com") or an IP literal
+	 * (eg: "[1.2.3.4]").
+	 *
+	 * @link    https://tools.ietf.org/html/rfc5321#section-2.3.5
+	 * @link    http://cbl.abuseat.org/namingproblems.html
+	 * @return    string
+	 */
+	protected function _get_hostname() {
+		if (isset($_SERVER['SERVER_NAME'])) {
+			return $_SERVER['SERVER_NAME'];
+		}
+
+		return isset($_SERVER['SERVER_ADDR']) ? '[' . $_SERVER['SERVER_ADDR'] . ']' : '[127.0.0.1]';
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Get SMTP data
+	 *
+	 * @return    string
+	 */
+	protected function _get_smtp_data() {
+		$data = '';
+
+		while ($str = fgets($this->_smtp_connect, 512)) {
+			$data .= $str;
+
+			if ($str[3] === ' ') {
+				break;
+			}
+		}
+
+		return $data;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
 	 * Strip line-breaks via callback
 	 *
 	 * @param string $matches
@@ -1966,159 +2119,6 @@ class CI_Email {
 		}
 
 		return $this->_send_command('hello');
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * Get SMTP data
-	 *
-	 * @return    string
-	 */
-	protected function _get_smtp_data() {
-		$data = '';
-
-		while ($str = fgets($this->_smtp_connect, 512)) {
-			$data .= $str;
-
-			if ($str[3] === ' ') {
-				break;
-			}
-		}
-
-		return $data;
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * Send SMTP command
-	 *
-	 * @param string
-	 * @param string
-	 * @return    bool
-	 */
-	protected function _send_command($cmd, $data = '') {
-		switch ($cmd) {
-			case 'hello' :
-
-				if ($this->_smtp_auth OR $this->_get_encoding() === '8bit') {
-					$this->_send_data('EHLO ' . $this->_get_hostname());
-				} else {
-					$this->_send_data('HELO ' . $this->_get_hostname());
-				}
-
-				$resp = 250;
-				break;
-			case 'starttls'    :
-
-				$this->_send_data('STARTTLS');
-				$resp = 220;
-				break;
-			case 'from' :
-
-				$this->_send_data('MAIL FROM:<' . $data . '>');
-				$resp = 250;
-				break;
-			case 'to' :
-
-				if ($this->dsn) {
-					$this->_send_data('RCPT TO:<' . $data . '> NOTIFY=SUCCESS,DELAY,FAILURE ORCPT=rfc822;' . $data);
-				} else {
-					$this->_send_data('RCPT TO:<' . $data . '>');
-				}
-
-				$resp = 250;
-				break;
-			case 'data'    :
-
-				$this->_send_data('DATA');
-				$resp = 354;
-				break;
-			case 'reset':
-
-				$this->_send_data('RSET');
-				$resp = 250;
-				break;
-			case 'quit'    :
-
-				$this->_send_data('QUIT');
-				$resp = 221;
-				break;
-		}
-
-		$reply = $this->_get_smtp_data();
-
-		$this->_debug_msg[] = '<pre>' . $cmd . ': ' . $reply . '</pre>';
-
-		if ((int)self::substr($reply, 0, 3) !== $resp) {
-			$this->_set_error_message('lang:email_smtp_error', $reply);
-			return FALSE;
-		}
-
-		if ($cmd === 'quit') {
-			fclose($this->_smtp_connect);
-		}
-
-		return TRUE;
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * Send SMTP data
-	 *
-	 * @param string $data
-	 * @return    bool
-	 */
-	protected function _send_data($data) {
-		$data .= $this->newline;
-		for ($written = $timestamp = 0, $length = self::strlen($data); $written < $length; $written += $result) {
-			if (($result = fwrite($this->_smtp_connect, self::substr($data, $written))) === FALSE) {
-				break;
-			} // See https://bugs.php.net/bug.php?id=39598 and http://php.net/manual/en/function.fwrite.php#96951
-			elseif ($result === 0) {
-				if ($timestamp === 0) {
-					$timestamp = time();
-				} elseif ($timestamp < (time() - $this->smtp_timeout)) {
-					$result = FALSE;
-					break;
-				}
-
-				usleep(250000);
-				continue;
-			}
-
-			$timestamp = 0;
-		}
-
-		if ($result === FALSE) {
-			$this->_set_error_message('lang:email_smtp_data_failure', $data);
-			return FALSE;
-		}
-
-		return TRUE;
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * Get Hostname
-	 *
-	 * There are only two legal types of hostname - either a fully
-	 * qualified domain name (eg: "mail.example.com") or an IP literal
-	 * (eg: "[1.2.3.4]").
-	 *
-	 * @link    https://tools.ietf.org/html/rfc5321#section-2.3.5
-	 * @link    http://cbl.abuseat.org/namingproblems.html
-	 * @return    string
-	 */
-	protected function _get_hostname() {
-		if (isset($_SERVER['SERVER_NAME'])) {
-			return $_SERVER['SERVER_NAME'];
-		}
-
-		return isset($_SERVER['SERVER_ADDR']) ? '[' . $_SERVER['SERVER_ADDR'] . ']' : '[127.0.0.1]';
 	}
 
 	// --------------------------------------------------------------------

@@ -115,7 +115,7 @@ _END;
 						timeStamp: timeStamp
 					},
 					success: function () {
-						$("#postCommentForm").each(function() {
+						$("#postCommentForm").each(function () {
 							this.reset();
 						});
 					}

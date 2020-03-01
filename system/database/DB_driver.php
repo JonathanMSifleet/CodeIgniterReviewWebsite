@@ -378,6 +378,19 @@ abstract class CI_DB_driver {
 	// --------------------------------------------------------------------
 
 	/**
+	 * DB connect
+	 *
+	 * This is just a dummy method that all drivers will override.
+	 *
+	 * @return    mixed
+	 */
+	public function db_connect() {
+		return TRUE;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
 	 * Reconnect
 	 *
 	 * Keep / reestablish the db connection if no queries have been
@@ -448,6 +461,53 @@ abstract class CI_DB_driver {
 	 */
 	protected function _version() {
 		return 'SELECT VERSION() AS ver';
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Display an error message
+	 *
+	 * @param string    the error message
+	 * @param string    any "swap" values
+	 * @param bool    whether to localize the message
+	 * @return    string    sends the application/views/errors/error_db.php template
+	 */
+	public function display_error($error = '', $swap = '', $native = FALSE) {
+		$LANG =& load_class('Lang', 'core');
+		$LANG->load('db');
+
+		$heading = $LANG->line('db_error_heading');
+
+		if ($native === TRUE) {
+			$message = (array)$error;
+		} else {
+			$message = is_array($error) ? $error : array(str_replace('%s', $swap, $LANG->line($error)));
+		}
+
+		// Find the most likely culprit of the error by going through
+		// the backtrace until the source file is no longer in the
+		// database folder.
+		$trace = debug_backtrace();
+		foreach ($trace as $call) {
+			if (isset($call['file'], $call['class'])) {
+				// We'll need this on Windows, as APPPATH and BASEPATH will always use forward slashes
+				if (DIRECTORY_SEPARATOR !== '/') {
+					$call['file'] = str_replace('\\', '/', $call['file']);
+				}
+
+				if (strpos($call['file'], BASEPATH . 'database') === FALSE && strpos($call['class'], 'Loader') === FALSE) {
+					// Found it - use a relative path for safety
+					$message[] = 'Filename: ' . str_replace(array(APPPATH, BASEPATH), '', $call['file']);
+					$message[] = 'Line Number: ' . $call['line'];
+					break;
+				}
+			}
+		}
+
+		$error =& load_class('Exceptions', 'core');
+		echo $error->show_error($heading, $message, 'error_db');
+		exit(8); // EXIT_DATABASE
 	}
 
 	// --------------------------------------------------------------------
@@ -838,66 +898,6 @@ abstract class CI_DB_driver {
 
 		// Now we set the character set and that's all
 		return $this->db_set_charset($this->char_set);
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * DB connect
-	 *
-	 * This is just a dummy method that all drivers will override.
-	 *
-	 * @return    mixed
-	 */
-	public function db_connect() {
-		return TRUE;
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * Display an error message
-	 *
-	 * @param string    the error message
-	 * @param string    any "swap" values
-	 * @param bool    whether to localize the message
-	 * @return    string    sends the application/views/errors/error_db.php template
-	 */
-	public function display_error($error = '', $swap = '', $native = FALSE) {
-		$LANG =& load_class('Lang', 'core');
-		$LANG->load('db');
-
-		$heading = $LANG->line('db_error_heading');
-
-		if ($native === TRUE) {
-			$message = (array)$error;
-		} else {
-			$message = is_array($error) ? $error : array(str_replace('%s', $swap, $LANG->line($error)));
-		}
-
-		// Find the most likely culprit of the error by going through
-		// the backtrace until the source file is no longer in the
-		// database folder.
-		$trace = debug_backtrace();
-		foreach ($trace as $call) {
-			if (isset($call['file'], $call['class'])) {
-				// We'll need this on Windows, as APPPATH and BASEPATH will always use forward slashes
-				if (DIRECTORY_SEPARATOR !== '/') {
-					$call['file'] = str_replace('\\', '/', $call['file']);
-				}
-
-				if (strpos($call['file'], BASEPATH . 'database') === FALSE && strpos($call['class'], 'Loader') === FALSE) {
-					// Found it - use a relative path for safety
-					$message[] = 'Filename: ' . str_replace(array(APPPATH, BASEPATH), '', $call['file']);
-					$message[] = 'Line Number: ' . $call['line'];
-					break;
-				}
-			}
-		}
-
-		$error =& load_class('Exceptions', 'core');
-		echo $error->show_error($heading, $message, 'error_db');
-		exit(8); // EXIT_DATABASE
 	}
 
 	// --------------------------------------------------------------------

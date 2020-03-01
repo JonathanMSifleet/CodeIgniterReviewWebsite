@@ -35,7 +35,7 @@ class Sign_In_Controller extends CI_Controller {
 
 		$isUserAdmin = 0;
 
-		foreach($loginAttempt as $curLogin) {
+		foreach ($loginAttempt as $curLogin) {
 			$isUserAdmin = $curLogin->admin;
 			break;
 		}
@@ -58,7 +58,7 @@ class Sign_In_Controller extends CI_Controller {
 			if (password_verify($postData['password'], $userPasswordHash)) {
 				$_SESSION['loggedIn'] = true;
 				$_SESSION['loggedInUsername'] = $postData['username'];
-				if($isUserAdmin == 1) {
+				if ($isUserAdmin == 1) {
 					$_SESSION['isAdmin'] = true;
 				}
 
