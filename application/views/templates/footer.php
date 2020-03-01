@@ -1,5 +1,5 @@
-<footer class="footer rounded">
-	<div class="footerContainer rounded">
+<footer class="footer fixed-bottom rounded">
+	<div class="footerContainer">
 		<div class="footerContent rounded">
 			<div class="footerImageContainer">
 				<img id="mmuLogo" src="<?php echo base_url() . 'application/images/mmuDark.jpg'; ?>" alt="MMU Logo">
