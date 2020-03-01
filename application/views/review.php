@@ -63,8 +63,8 @@ _END;
 	<div class="postCommentContainer rounded">
 		<form method="post" action="" id="postCommentForm">
 			<div class="form-group">
-				<input type="text" name="commentInput" class="form-control" id="commentInput"
-				       placeholder="Enter comment">
+				<textarea type="text" name="commentInput" class="form-control rounded" id="commentInput"
+				       placeholder="Enter comment"></textarea>
                 <input type="hidden" name="username" id="username" value="$username">
                 <input type="hidden" name="reviewID" id="reviewID" value="{$_SESSION['reviewID']}">
                 <input type="hidden" name="currentURL" id="currentURL" value="$currentURL">

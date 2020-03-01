@@ -258,11 +258,6 @@ body {
 	color: var(--reviewHyperlinkHover);
 }
 
-.loginContainerOuter {
-	width: 100%;
-	padding: 1%;
-}
-
 .loginContainerInner {
 	background-color: var(--container-dark);
 	margin: 0 auto;
@@ -276,11 +271,9 @@ body {
 	float: left;
 	background-color: var(--container-light);
 	display: block;
-	align: centre;
 	width: 100%;
 	height: auto;
-	padding: 1%;
-	clear: both;
+	padding: 2%;
 }
 
 #formLabel {
@@ -302,6 +295,8 @@ body {
 	margin: 1% 0 0;
 	text-align: center;
 	background-color: var(--container-dark);
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 .titleWrapper {
@@ -472,9 +467,10 @@ body {
 
 .postCommentContainer {
 	padding: 1%;
-	margin: 1%;
+	margin: 1% auto;
 	height: auto;
 	background-color: var(--container-light);
+	width: 60vw;
 }
 
 #postCommentForm {
@@ -482,6 +478,10 @@ body {
 	margin: 0;
 	white-space: nowrap;
 	height: auto;
+}
+
+#commentInput {
+	height: 10vh;
 }
 
 #submitCommentButton {
