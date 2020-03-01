@@ -1,5 +1,7 @@
 <html>
 
+<title>Chat server</title>
+
 <body>
 
 <h1>Chat server</h1>

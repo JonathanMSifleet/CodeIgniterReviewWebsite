@@ -1,5 +1,7 @@
 <html>
 
+<title>Game review Website</title>
+
 <body>
 
 <h1>Jonathan's Game Review Website - 1CKW50</h1>

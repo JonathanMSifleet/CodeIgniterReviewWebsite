@@ -1,5 +1,10 @@
 <html>
 
+<title><?php foreach ($gameReview as $review) {
+		echo $review->GameName . " Review";
+		break;
+	} ?></title>
+
 <body>
 <div id="review">
 

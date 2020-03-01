@@ -1,5 +1,7 @@
 <html>
 
+<title>Sign in</title>
+
 <body>
 
 <div class="loginContainerOuter">

@@ -1,5 +1,7 @@
 <html>
 
+<title>Sign up/title>
+
 <body>
 
 <div class="loginContainerOuter">

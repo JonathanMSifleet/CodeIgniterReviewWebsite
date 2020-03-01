@@ -25,10 +25,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 	<script src="<?php echo base_url() . 'application/scripts/LoadCommentsVue.js'; ?>"></script>
 
-	<title><?php foreach ($gameReview as $review) {
-			echo $review->GameName . " Review";
-			break;
-		} ?></title>
 </head>
 
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" id="navbar">
