@@ -258,7 +258,7 @@ body {
 	color: var(--reviewHyperlinkHover);
 }
 
-.loginContainerInner {
+.loginContainer {
 	background-color: var(--container-dark);
 	margin: 0 auto;
 	padding: 1%;
