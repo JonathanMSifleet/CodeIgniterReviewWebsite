@@ -43,6 +43,8 @@ _END;
 			<script src=$loadComments></script>
 _END;
 		break;
+	default :
+		break;
 }
 ?>
 

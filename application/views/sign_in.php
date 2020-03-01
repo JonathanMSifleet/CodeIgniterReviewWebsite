@@ -11,7 +11,7 @@
 			<h2 id="containerTitleHeader" class="rounded">Sign-in</h2>
 		</div>
 
-		<form method="post" action="<?php echo base_url() . 'SignIn/attemptSignIn'; ?>">
+		<form method="post" action="<?php echo base_url('SignIn/attemptSignIn'); ?>">
 			<div class="form-group">
 				<label id="formLabel" for="inputUsername">Username</label>
 				<input type="text" name="usernameInput" class="form-control" id="inputUsername"

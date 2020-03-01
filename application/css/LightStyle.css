@@ -113,7 +113,7 @@ html * {
 .commentsContainerOuter {
 	clear: both;
 	float: left;
-	margin: 0% 1% 1%;
+	margin: 0% 1% 9vh;
 	background-color: var(--container-dark);
 	width: 98%;
 }
@@ -458,7 +458,7 @@ body {
 	padding: 1%;
 	margin-left: 1%;
 	margin-top: 1%;
-	margin-bottom: 0;
+	margin-bottom: 1%;
 	background-color: var(--container-light);
 	color: var(--p-text);
 	display: inline-block;
