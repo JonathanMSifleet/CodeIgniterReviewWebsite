@@ -11,6 +11,7 @@ $(document).ready(function () {
 		socket.emit("client message", {
 			username: $("#username").get(0).value,
 			message: $("#message").get(0).value,
+			chatRoom: $("#chatRoom").get(0).value,
 			timeStamp: $("#timeStamp").get(0).value,
 			isAdmin: $("#isAdmin").get(0).value
 		});
@@ -31,16 +32,18 @@ $(document).ready(function () {
 			messageContainer = "<div class='messageContainerInner rounded'>";
 		}
 
-		$("#chatspace").append(
-			"<div class='messageContainerOuter rounded'>" +
-			"<div class='messageTelemetry rounded'><p class='outputTelemetry'>" +
-			data['username'] + " <br> " + data['timeStamp'] +
-			"</p></div>" +
-			messageContainer +
-			"<p class='outputMessage'>" + data['message'] + "</p>" +
-			"</div>" +
-			"</div>"
-		);
+		if (data['chatRoom'] == $("#chatRoom").val()) {
+			$("#chatspace").append(
+				"<div class='messageContainerOuter rounded'>" +
+				"<div class='messageTelemetry rounded'><p class='outputTelemetry'>" +
+				data['username'] + " <br> " + data['timeStamp'] +
+				"</p></div>" +
+				messageContainer +
+				"<p class='outputMessage'>" + data['message'] + "</p>" +
+				"</div>" +
+				"</div>"
+			);
+		}
 	});
 
 	socket.on('connect_error', function () {
@@ -52,7 +55,6 @@ $(document).ready(function () {
 			$("#chatspace").append("<p> Unable to connect to chat server. Server may be offline. Please try again later<p>");
 			connectionFailed = true;
 		}
-
 
 	});
 

@@ -40,6 +40,7 @@
 					<input type="text" id="message" autocomplete="off" class="form-control rounded"></textarea>
 					<input type="hidden" id="username" value="<?php echo $_SESSION['loggedInUsername']; ?>">
 					<input type="hidden" id="timeStamp" value="<?php echo date("d-m-Y H:i:s", time()); ?>">
+					<input type="hidden" id="chatRoom" value=0>
 					<input type="hidden" id="isAdmin" value="<?php
 					if (isset($_SESSION['isAdmin'])) {
 						if ($_SESSION['isAdmin']) {

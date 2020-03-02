@@ -30,11 +30,11 @@ switch ($page) {
 	case "chat_server" :
 		$chatSource = base_url("application/scripts/chat.js");
 		$downloadChat = base_url("application/scripts/DownloadChat.js");
-		$colourChatRooms = base_url("application/scripts/ColourChatRooms.js");
+		$chatRooms = base_url("application/scripts/ChatRooms.js");
 		echo <<<_END
 				<script src=$chatSource></script>
 				<script src=$downloadChat></script>
-				<script src=$colourChatRooms></script>
+				<script src=$chatRooms></script>
 _END;
 		break;
 	case "review":
