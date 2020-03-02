@@ -3,15 +3,16 @@ document.addEventListener("DOMContentLoaded", initialiseWebPage)
 
 function initialiseWebPage() {
 
-	var color;
-	var background;
+	var active;
+	var inactive;
 
+	// set colours based upon theme
 	if (localStorage.getItem("theme") === "dark") {
-		color = "#00913A";
-		background = "#404040";
+		active = "#00913A";
+		inactive = "#404040";
 	} else {
-		color = "#4285F4";
-		background = "#FFFFFF";
+		active = "#4285F4";
+		inactive = "#FFFFFF";
 	}
 
 	var selectedChatRoom = document.getElementById("chatRoom");
@@ -21,54 +22,63 @@ function initialiseWebPage() {
 	var roomTwo = document.getElementById('roomTwo');
 	var roomThree = document.getElementById('roomThree');
 
+	// add chat room buttons to array
 	rooms.push(roomOne);
 	rooms.push(roomTwo);
 	rooms.push(roomThree);
 
-	rooms[0].style.backgroundColor = color;
+	// set default room to active colour
+	rooms[0].style.backgroundColor = active;
 
+	// add event listeners for click event:
 	rooms[0].addEventListener("click", () => {
 		selectedChatRoom.value = 0;
-		changeRoom(rooms, 0, color, background);
+		changeRoom(rooms, 0, active, inactive);
 	});
 	rooms[1].addEventListener("click", () => {
 		selectedChatRoom.value = 1;
-		changeRoom(rooms, 1, color, background);
+		changeRoom(rooms, 1, active, inactive);
 	});
 	rooms[2].addEventListener("click", () => {
 		selectedChatRoom.value = 2;
-		changeRoom(rooms, 2, color, background);
+		changeRoom(rooms, 2, active, inactive);
 	});
 
+	// add event listener to change theme button:
 	const changeThemeButton = document.getElementById("changeThemeButton");
 	changeThemeButton.addEventListener("click", () => {
 		changeTheme(rooms, selectedChatRoom.value);
 	});
 
-	function changeRoom(rooms, clicked, color, background) {
+	function changeRoom(rooms, clicked, active, inactive) {
 
+		// when change all room buttons to inactive colour
 		for (var i = 0; i < rooms.length; i++) {
-			rooms[i].style.backgroundColor = background;
+			rooms[i].style.backgroundColor = inactive;
 		}
-		rooms[clicked].style.backgroundColor = color;
+		// set active room to active colour
+		rooms[clicked].style.backgroundColor = active;
 
+		// clear chatspace div
 		$("#chatspace").empty();
 
 	}
 
 	function changeTheme(rooms, activeRoom) {
+		// change room buttons colour based upon theme
 		if (localStorage.getItem("theme") === "dark") {
-			color = "#00913A";
-			background = "#404040";
+			active = "#00913A";
+			inactive = "#404040";
 		} else {
-			color = "#4285F4";
-			background = "#FFFFFF";
+			active = "#4285F4";
+			inactive = "#FFFFFF";
 		}
 
+		// change room buttosn to appropriate colours:
 		for (var i = 0; i < rooms.length; i++) {
-			rooms[i].style.backgroundColor = background;
+			rooms[i].style.backgroundColor = inactive;
 		}
-		rooms[activeRoom].style.backgroundColor = color;
+		rooms[activeRoom].style.backgroundColor = active;
 	}
 
 }

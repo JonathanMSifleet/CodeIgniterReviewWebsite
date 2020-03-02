@@ -309,11 +309,11 @@ body {
 
 .chatSpaceContainerOuter {
 	background-color: var(--container-dark);
-	margin: 1%;
 	padding: 1%;
 	width: auto;
 	clear: both;
 	overflow: auto;
+	margin: 1% 1% 9vh;
 }
 
 .chatRoomContainer {
@@ -354,9 +354,9 @@ body {
 	background-color: var(--container-light);
 	margin-bottom: 1%;
 	margin-left: 1%;
-	margin-right: 1%;
+	margin-right: 0%;
 	padding: 1%;
-	width: 90%;
+	width: 91%;
 	float: left;
 	height: auto;
 }
