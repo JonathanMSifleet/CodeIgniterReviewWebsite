@@ -16,7 +16,17 @@
 <div class="chatSpaceContainerOuter rounded">
 
 	<div class="chatRoomContainer rounded">
-		<h3 id="chatRoomTitle">Chat Rooms</h3>
+		<h3 id="chatRoomTitle" class="rounded">Chat Rooms</h3>
+
+		<div class="roomButton rounded" id="roomOne">
+			<p class="roomLabel">Room 1</p>
+		</div>
+		<div class="roomButton rounded" id="roomTwo">
+			<p class="roomLabel">Room 2</p>
+		</div>
+		<div class="roomButton rounded" id="roomThree">
+			<p class="roomLabel">Room 3</p>
+		</div>
 	</div>
 
 	<div class="chatSpaceContainerInner rounded">

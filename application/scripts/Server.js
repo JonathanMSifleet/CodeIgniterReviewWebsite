@@ -3,10 +3,6 @@ var app = require("http").createServer();
 //create an instance of a Socket.IO server. attach to Node.JS server
 var io = require("socket.io")(app);
 
-/* var room1 = io.connect('/room1');
-var room2 = io.connect('/room2');
-var room3 = io.connect('/room2'); */
-
 //create an event handler that monitors new connections:
 io.on('connection', function (socket) {
 	//print a message on the terminal when a new user connects:
