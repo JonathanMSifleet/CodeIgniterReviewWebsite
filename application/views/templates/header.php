@@ -26,6 +26,7 @@
 </head>
 
 <?php
+// load appropriate scripts depending on page type:
 switch ($page) {
 	case "chat_server" :
 		$chatSource = base_url("application/scripts/chat.js");
@@ -49,7 +50,7 @@ _END;
 		break;
 }
 ?>
-
+<!-- nav bar -->
 <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark" id="navbar">
 	<span class="navbar-brand">1CKW50</span>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -71,7 +72,7 @@ _END;
 	<ul class="navbar-nav mr-auto">
 
 		<?php
-
+		// display appropriate buttons depending on whether user is logged in or not
 		if (isset($_SESSION['loggedIn'])) {
 			if ($_SESSION['loggedIn']) {
 				echo "<li class='nav-item active'>";
@@ -97,6 +98,7 @@ _END;
 		}
 		?>
 
+		<!-- display change theme button -->
 		<li>
 			<button class="btn btn-outline-success my-2 my-sm-0" type="button" name="theme" id="changeThemeButton">Change theme</button>
 		</li>

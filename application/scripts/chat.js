@@ -1,5 +1,6 @@
 $(document).ready(function () {
 	var chatContainer = document.getElementById("sendMessageContainer");
+
 	// connect to the socket.IO server
 	var socket = io.connect("http://localhost:8080");
 	var connectionFailed = false;
@@ -22,9 +23,9 @@ $(document).ready(function () {
 	// when we receive a message from the server...
 	socket.on("server message", function (data) {
 		// add the message to the output area and create a new line:
-
 		let messageContainer = "";
 
+		// if the user is admin make message container green
 		if (data['isAdmin'] == 1) {
 			messageContainer = "<div class='messageContainerInnerAdmin rounded'>";
 			data['username'] = data['username'] + " (admin)";
@@ -32,6 +33,7 @@ $(document).ready(function () {
 			messageContainer = "<div class='messageContainerInner rounded'>";
 		}
 
+		// add message to chat room if message is sent to selected chat room:
 		if (data['chatRoom'] == $("#chatRoom").val()) {
 			$("#chatspace").append(
 				"<div class='messageContainerOuter rounded'>" +
@@ -48,10 +50,13 @@ $(document).ready(function () {
 
 	socket.on('connect_error', function () {
 
+		// if connection failed
 		if (!connectionFailed) {
+
+			// hide chat container
 			chatContainer.style.display = "none";
 
-			console.log("Cannot connect to server");
+			// display message that user cannot connect to server
 			$("#chatspace").append("<p> Unable to connect to chat server. Server may be offline. Please try again later<p>");
 			connectionFailed = true;
 		}

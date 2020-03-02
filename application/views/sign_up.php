@@ -11,6 +11,7 @@
 			<h2 id="containerTitleHeader" class="rounded">Sign-up</h2>
 		</div>
 
+		<!-- attempt sign up form -->
 		<form method="post" action="<?php echo base_url('SignUp/attemptSignUp'); ?>">
 			<div class="form-group">
 				<label id="formLabel" for="inputUsername">Username</label>
@@ -24,6 +25,7 @@
 			</div>
 
 			<?php
+			// if account exists display message
 			if (isset($accountExists)) {
 				if ($accountExists) {
 					echo "<p>Username in use, please try another</p>";

@@ -1,3 +1,4 @@
+<!-- display footer -->
 <footer class="footer fixed-bottom rounded">
 	<div class="footerContainer">
 		<div class="footerContent rounded">

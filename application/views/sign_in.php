@@ -11,6 +11,7 @@
 			<h2 id="containerTitleHeader" class="rounded">Sign-in</h2>
 		</div>
 
+		<!-- attempt sign in form -->
 		<form method="post" action="<?php echo base_url('SignIn/attemptSignIn'); ?>">
 			<div class="form-group">
 				<label id="formLabel" for="inputUsername">Username</label>
@@ -25,6 +26,7 @@
 
 			<?php
 			if (isset($message)) {
+				// display appropriate message if login failed
 				echo "<p>" . $message . ", please try again</p>";
 			}
 			?>

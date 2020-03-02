@@ -1,5 +1,7 @@
 <script>
 
+	// checks if local storage item exists instead of checking if browser is chrome on every page
+
 	// checks local storage to see if the wrong browser alert has been displayed
 	if (localStorage.getItem("displayWrongBrowserAlert") === null) {
 		// if the browser isn't chrome display the alert
@@ -14,7 +16,10 @@
 </script>
 
 <?php
+// display header
 $this->load->view('templates/header', $page);
+// display page
 $this->load->view($bodyContent);
+// display footer
 $this->load->view('templates/footer');
 ?>
