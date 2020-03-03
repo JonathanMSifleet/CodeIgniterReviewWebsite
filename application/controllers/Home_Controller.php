@@ -5,11 +5,9 @@ class Home_Controller extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		// Consider if it would be best to autoload some of the helpers from here.
 		$this->load->helper('url');
 		$this->load->helper('url_helper');
 		$this->load->helper('html');
-		$this->load->helper('cookie');
 
 		// Load in your Models below.
 		$this->load->model('Home_Model');
@@ -19,7 +17,6 @@ class Home_Controller extends CI_Controller {
 	public function index() {
 		//Load data required for web page in array.
 
-		// Change this to whatever title you wish.
 		$data['title'] = 'Games Reviews';
 
 		// Get the data from our Home Model.
@@ -34,11 +31,10 @@ class Home_Controller extends CI_Controller {
 
 	public function searchReview($gameName) {
 
+		// get search term
 		$gameName = $this->input->post('searchTerm');
 
 		//Load data required for web page in array.
-
-		// Change this to whatever title you wish.
 		$data['title'] = 'Games Reviews';
 
 		// Get the data from our Home Model.
@@ -46,17 +42,8 @@ class Home_Controller extends CI_Controller {
 
 		//Load the view and send the data across.
 		$data['bodyContent'] = 'home';
-
 		$data['page'] = 'home';
-
 		$this->load->view('template', $data);
-	}
-
-	public function review($slug = NULL) {
-		//Get the data from the model based on the slug we have.
-		//Slugs match on to the knowledge around wildcard routes.
-		//More information on slugs can be found here: https://codeigniter.com/user_guide/tutorial/news_section.html
-
 	}
 
 }
