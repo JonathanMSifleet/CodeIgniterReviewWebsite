@@ -423,11 +423,6 @@ body {
 	clear: right;
 }
 
-#downloadChat {
-	float: left;
-	margin: 1%;
-}
-
 #commentsDisabledMessage {
 	background-color: var(--container-dark);
 	color: var(--p-text);

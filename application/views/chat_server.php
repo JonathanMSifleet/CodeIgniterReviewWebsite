@@ -54,10 +54,10 @@
 						echo false;
 					}
 					?>">
-					<button type='submit' id='sendbutton'>Send</button>
+					<button type='submit' id='sendbutton' class="rounded">Send</button>
 				</form>
 				<!-- display download chat button -->
-				<button id="downloadChatButton">Download chat</button>
+				<button id="downloadChatButton" class="rounded">Download chat</button>
 			</div>
 		</div>
 	</div>
