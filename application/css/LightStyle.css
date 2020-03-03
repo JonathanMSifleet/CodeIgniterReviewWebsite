@@ -170,15 +170,6 @@ body {
 	height: auto;
 }
 
-#changeThemeButton {
-	float: right;
-	padding: 1%;
-	margin: 0;
-	height: 5vh;
-	color: var(--buttonBackground) !important;
-	border-color: var(--buttonBackground) !important;
-}
-
 #reviewButton {
 	background-color: var(--buttonBackground) !important;
 }
@@ -518,4 +509,30 @@ body {
 	width: 14vw;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#signInOutButtonContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#signInOutButton {
+	margin: auto;
+	padding: 0;
+}
+
+#changeThemeContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#changeThemeButton {
+	float: right;
+	padding: 1%;
+	margin: 0;
+	height: 5vh;
+	color: var(--buttonBackground) !important;
+	border-color: var(--buttonBackground) !important;
 }

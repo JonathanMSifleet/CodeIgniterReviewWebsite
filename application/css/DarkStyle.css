@@ -162,13 +162,6 @@ body {
 	height: auto;
 }
 
-#changeThemeButton {
-	float: right;
-	padding: 1%;
-	margin: 0;
-	height: 5vh;
-}
-
 #reviewButton {
 	background-color: var(--buttonBackground) !important;
 }
@@ -517,4 +510,17 @@ body {
 #signInOutButton {
 	margin: auto;
 	padding: 0;
+}
+
+#changeThemeContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#changeThemeButton {
+	float: right;
+	padding: 1%;
+	margin: 0;
+	height: 5vh;
 }

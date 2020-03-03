@@ -87,6 +87,7 @@ _END;
 	?>
 
 	<!-- display change theme button -->
-	<button class="btn btn-outline-success my-2 my-sm-0" type="button" name="theme" id="changeThemeButton">Change theme</button>
-
+	<div id="changeThemeContainer">
+		<button class="btn btn-outline-success my-2 my-sm-0" type="button" name="theme" id="changeThemeButton">Change theme</button>
+	</div>
 </nav>
