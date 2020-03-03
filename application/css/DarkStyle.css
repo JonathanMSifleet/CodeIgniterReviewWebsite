@@ -53,6 +53,11 @@ html * {
 	box-shadow: 0 0 10px 10px var(--box-shadow);
 }
 
+.nav-link {
+	background-color: #535353;
+	color: white !important;
+}
+
 #review {
 	width: 100%;
 }
@@ -501,4 +506,15 @@ body {
 	width: 14vw;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#signInOutButtonContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#signInOutButton {
+	margin: auto;
+	padding: 0;
 }

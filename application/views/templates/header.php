@@ -69,40 +69,24 @@ _END;
 		</ul>
 	</div>
 
-	<ul class="navbar-nav mr-auto">
-
-		<?php
-		// display appropriate buttons depending on whether user is logged in or not
-		if (isset($_SESSION['loggedIn'])) {
-			if ($_SESSION['loggedIn']) {
-				echo "<li class='nav-item active'>";
-				echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "/SignOut'>Sign-out (" . $_SESSION['loggedInUsername'] . ") <span class='sr-only'>(current)</span></a>";
-				echo "</li>";
-			} else {
-				echo "<li class='nav-item active'>";
-				echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "SignUp'>Sign-up <span class='sr-only'>(current)</span></a>";
-				echo "</li>";
-
-				echo "<li class='nav-item active'>";
-				echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . ">Sign-in <span class='sr-only'>(current)</span></a>";
-				echo "</li>";
-			}
+	<?php
+	// display appropriate buttons depending on whether user is logged in or not
+	if (isset($_SESSION['loggedIn'])) {
+		if ($_SESSION['loggedIn']) {
+			echo "<a class='nav-link rounded' href='" . base_url() . "SignOut'>Sign-out (" . $_SESSION['loggedInUsername'] . ") <span class='sr-only'>(current)</span></a>";
 		} else {
-			echo "<li class='nav-item active'>";
-			echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "SignUp'>Sign-up <span class='sr-only'>(current)</span></a>";
-			echo "</li>";
+			echo "<a class='nav-link rounded' href='" . base_url() . "SignUp'>Sign-up <span class='sr-only'>(current)</span></a>";
 
-			echo "<li class='nav-item active'>";
-			echo "<a id='signInOutButton' class='nav-link rounded' href='" . base_url() . "SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
-			echo "</li>";
+			echo "<a class='nav-link rounded' href='" . base_url() . "Sign-in'>Sign-in <span class='sr-only'>(current)</span></a>";
 		}
-		?>
+	} else {
+		echo "<a class='nav-link rounded' href='" . base_url() . "SignUp'>Sign-up <span class='sr-only'>(current)</span></a>";
 
-		<!-- display change theme button -->
-		<li>
-			<button class="btn btn-outline-success my-2 my-sm-0" type="button" name="theme" id="changeThemeButton">Change theme</button>
-		</li>
+		echo "<a class='nav-link rounded' href='" . base_url() . "SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
+	}
+	?>
 
-	</ul>
+	<!-- display change theme button -->
+	<button class="btn btn-outline-success my-2 my-sm-0" type="button" name="theme" id="changeThemeButton">Change theme</button>
 
 </nav>
