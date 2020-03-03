@@ -77,7 +77,6 @@ if (file_exists(APPPATH . 'config/constants.php')) {
  */
 require_once(BASEPATH . 'core/Common.php');
 
-
 /*
  * ------------------------------------------------------
  * Security procedures
@@ -120,7 +119,6 @@ if (!is_php('5.4')) {
 		}
 	}
 }
-
 
 /*
  * ------------------------------------------------------
