@@ -77,12 +77,10 @@ _END;
 			<div class="form-group">
 				<input type="text" name="commentInput" class="form-control rounded" id="commentInput"
 				       placeholder="Enter comment">
-                <input type="hidden" name="username" id="username" value="$username">
                 <input type="hidden" name="reviewID" id="reviewID" value="{$_SESSION['reviewID']}">
-                <input type="hidden" name="currentURL" id="currentURL" value="$currentURL">
                 <input type="hidden" name="timeStamp" id="timeStamp" value="$curDate">
 			</div>
-			<button id="submitCommentButton" type="submit" name="submitCommentButton" class="btn btn-primary">Submit</button>
+			<button v-on:click="setComment()" id="submitCommentButton" name="submitCommentButton" class="btn btn-primary">Submit</button>
 		</form>	
 	</div>
 _END;
@@ -103,44 +101,5 @@ _END;
 </div>
 
 </body>
-
-<script>
-	$(function () {
-		$("#submitCommentButton").click(function (e) {
-			e.preventDefault();
-
-			<!-- use jQuery to fetch data from comment form -->
-			var commentInput = $("#commentInput").val();
-			var username = $("#username").val();
-			var reviewID = $("#reviewID").val();
-			var currentURL = $("#currentURL").val();
-			var timeStamp = $("#timeStamp").val();
-
-			<!-- access route to Post comment function in review controller-->
-			var URL = "<?php echo base_url();?>PostComment";
-
-			<!-- use ajax to post data from comment form -->
-			$.ajax(
-				{
-					type: "post",
-					url: URL,
-					data: {
-						commentInput: commentInput,
-						username: username,
-						reviewID: reviewID,
-						currentURL: currentURL,
-						timeStamp: timeStamp
-					},
-					<!-- clear div on comment submit-->
-					success: function () {
-						$("#postCommentForm").each(function () {
-							this.reset();
-						});
-					}
-				}
-			);
-		});
-	});
-</script>
 
 </html>
