@@ -1,23 +1,30 @@
-var app = new Vue({
-    el: '#commentsSection',
-    data: {
-        comments: []
-    },
-    methods: {
-        setComment: function () {
+document.addEventListener("DOMContentLoaded", function (event) {
+    var app = new Vue({
+        el: '#commentsSection',
+        data: {
+            comments: []
+        },
+        created: function () {
+            console.log("Created");
+        },
+        methods: {
+            setComment: function () {
 
-            var reviewID = $("#reviewID").val();
-            var timeStamp = $("#timeStamp").val();
-            var comment = $("#commentInput").val();
+                console.log("Click");
 
-            var postData = {"reviewID": reviewID, "timeStamp": timeStamp, "comment": comment};
+                var reviewID = $("#reviewID").val();
+                var timeStamp = $("#timeStamp").val();
+                var comment = $("#commentInput").val();
 
-            $.post("http://localhost:82/games-review/SetComment", postData)
-                .done(function (postData) {
-                    console.log(postData);
+                var postData = {"reviewID": reviewID, "timeStamp": timeStamp, "comment": comment};
 
-                    app.comments.push(postData);
-                });
+                console.log(json.stringify(postData));
+
+                $.post("http://localhost:82/games-review/SetComment", postData)
+                    .done(function (postData) {
+                        app.comments.push(postData);
+                    });
+            }
         }
-    }
+    })
 });
