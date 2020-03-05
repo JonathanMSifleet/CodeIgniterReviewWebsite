@@ -83,11 +83,11 @@ _END;
 			}
 
 			?>
-			<!--
 			<div id="vueComments" class="rounded" v-for="comment in comments">
 				<p>{{comment[0].UserComment}}</p>
-				<p>{{comment.TimeStamp}}</p>
-			</div> -->
+				<p>{{comment.UserComment}}</p>
+				<p>{{this.UserComment}}</p>
+			</div>
 		</div>
 	</div>
 </div>

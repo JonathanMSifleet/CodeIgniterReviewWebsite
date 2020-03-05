@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		methods: {
 			setComment: function () {
 
-				console.log("Click");
-
 				var reviewID = $("#reviewID").val();
 				var timeStamp = $("#timeStamp").val();
 				var comment = $("#commentInput").val();
@@ -19,6 +17,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
 					.done(function (postData) {
 						app.comments.push(postData);
 					});
+			},
+			getComments: function() {
+
+				$.get("http://localhost:82/games-review/GetComments", function(data) {
+					console.log(data);
+
+					app.comments.push(data);
+
+				})
+
 			}
 		}
 	})
