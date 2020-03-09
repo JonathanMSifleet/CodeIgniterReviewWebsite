@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		data: {
 			comments: []
 		},
+		created: function () {
+			this.getComments();
+		},
 		methods: {
 			setComment: function () {
 
@@ -23,7 +26,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 				$.get("http://localhost:82/games-review/GetComments", function(data) {
 					console.log(data);
 
-					app.comments.push(data);
+					data.forEach(element => {
+						app.comments.push(element);
+					});
 
 				})
 

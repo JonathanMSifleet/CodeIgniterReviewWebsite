@@ -84,9 +84,12 @@ _END;
 
 			?>
 			<div id="vueComments" class="rounded" v-for="comment in comments">
-				<p>{{comment[0].UserComment}}</p>
-				<p>{{comment.UserComment}}</p>
-				<p>{{this.UserComment}}</p>
+                <div class='messageTelemetry rounded'>
+                    <p class="outputTelemetry">{{comment.Username}} <br> {{comment.TimeStamp}}</p>
+                </div>
+                <div class='messageContainerInner rounded'>
+                    <p class='outputMessage rounded'> {{comment.UserComment}}</p>
+                </div>
 			</div>
 		</div>
 	</div>

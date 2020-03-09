@@ -349,15 +349,6 @@ body {
 	padding: 0;
 }
 
-.messageContainerOuter {
-	padding: 0;
-	margin: 0 0 1%;
-	background-color: var(--container-dark);
-	display: inline-block;
-	width: 100%;
-	height: auto;
-}
-
 .messageTelemetry {
 	padding: 0.5%;
 	margin: 0 1% 0 0;
@@ -523,8 +514,9 @@ body {
 
 #vueComments {
 	padding: 0;
-	height: 10vh;
-	width: 98%;
-	background-color: var(--container-light);
-	margin: 1%;
+	margin: 0 0 1%;
+	background-color: var(--container-dark);
+	display: inline-block;
+	width: 100%;
+	height: auto;
 }
