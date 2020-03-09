@@ -8,13 +8,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			this.getComments();
 		},
 		methods: {
-			setComment: function (username) {
-
+			setComment: function (username ,isAdmin) {
 				var reviewID = $("#reviewID").val();
 				var timeStamp = $("#timeStamp").val();
 				var comment = $("#commentInput").val();
 
-				var commentData = {"UserName": username, "reviewID": reviewID, "TimeStamp": timeStamp, "UserComment": comment};
+				var commentData = {"UserName": username, "reviewID": reviewID, "TimeStamp": timeStamp, "UserComment": comment, "admin": isAdmin};
 
 				$.post("http://localhost:82/games-review/SetComment", commentData)
 					.done(function (postData) {
@@ -22,18 +21,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 					});
 			},
 			getComments: function() {
-
 				$.get("http://localhost:82/games-review/GetComments", function(data) {
-
 					data.forEach(element => {
-
 						console.log(element);
-
 						app.comments.push(element);
 					});
-
 				})
-
 			}
 		}
 	})

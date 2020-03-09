@@ -52,8 +52,8 @@ _END;
 </div>
 
 <div class="commentsContainerOuter rounded" id="commentsContainer">
-	<div class="commentsContainerInner rounded">
-		<div id="commentsSection">
+    <div class="commentsContainerInner rounded">
+        <div id="commentsSection">
 			<?php
 			// if game comments are disabled hide comments div and display appropriate message
 			if ($_SESSION['gameComments'] == 0) {
@@ -75,23 +75,30 @@ _END;
                        placeholder="Enter comment">
                 <input type="hidden" name="reviewID" id="reviewID" value="{$_SESSION['reviewID']}">
                 <input type="hidden" name="timeStamp" id="timeStamp" value="$curDate">
-                <button v-on:click="setComment('{$_SESSION['loggedInUsername']}')" id="submitCommentButton" name="submitCommentButton" class="btn btn-primary">Submit</button>
+                <button v-on:click="setComment('{$_SESSION['loggedInUsername']}', {$_SESSION['isAdmin']})" id="submitCommentButton" name="submitCommentButton" class="btn btn-primary">Submit</button>
 _END;
 					}
 				}
 			}
 
 			?>
-			<div id="vueComments" class="rounded" v-for="comment in comments">
-                <div class='messageTelemetry rounded'>
+            <div id="vueComments" class="rounded" v-for="comment in comments">
+                <div v-if="comment.admin==1" class='messageTelemetry rounded'>
+                    <p class="outputTelemetry"> {{comment.UserName}} (Admin) <br> {{comment.TimeStamp}}</p>
+                </div>
+                <div v-else class='messageTelemetry rounded'>
                     <p class="outputTelemetry"> {{comment.UserName}} <br> {{comment.TimeStamp}}</p>
                 </div>
-                <div class='messageContainerInner rounded'>
+
+                <div v-if="comment.admin==1" class='messageContainerInnerAdmin rounded'>
                     <p class='outputMessage rounded'> {{comment.UserComment}}</p>
                 </div>
-			</div>
-		</div>
-	</div>
+                <div v-else class='messageContainerInner rounded'>
+                    <p class='outputMessage rounded'> {{comment.UserComment}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>

@@ -69,7 +69,9 @@ class Sign_In_Controller extends CI_Controller {
 				$_SESSION['loggedInUsername'] = $postData['username'];
 				if ($isUserAdmin == 1) {
 					$_SESSION['isAdmin'] = true;
-				}
+				} else {
+                    $_SESSION['isAdmin'] = false;
+                }
 
 				// redirect to home page:
 				redirect(base_url());

@@ -22,8 +22,6 @@ class Review_Controller extends CI_Controller {
 
 		$comment = $this->input->post();
 
-		print_r($comment);
-
 		// send comment data to review model
 		$this->Review_Model->attemptPostComment($comment);
 
