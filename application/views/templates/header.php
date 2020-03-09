@@ -40,7 +40,7 @@ _END;
 		break;
 	case "review":
 		$jumpToComments = base_url("application/scripts/JumpToComments.js");
-		$loadComments = base_url("application/scripts/LoadCommentsVue.js");
+		$loadComments = base_url("application/scripts/CommentsVue.js");
 		echo <<<_END
 			<script src=$jumpToComments></script>
 			<script src=$loadComments></script>
