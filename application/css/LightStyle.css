@@ -47,7 +47,6 @@ html * {
 
 .navbar {
 	background-color: var(--container-dark) !important;
-	height: 7vh;
 	width: 100%;
 	margin-bottom: 1%;
 	box-shadow: 0 0 10px 10px var(--box-shadow);
@@ -154,6 +153,7 @@ navbar-brand {
 .nav-link {
 	background-color: white !important;
 	color: black !important;
+	margin-bottom: 1vh;
 }
 
 .container-fluid {

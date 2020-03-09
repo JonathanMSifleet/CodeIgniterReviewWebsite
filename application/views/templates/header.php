@@ -67,27 +67,28 @@ _END;
 				<a class="nav-link rounded" href='<?php echo base_url("ChatServer"); ?>'>Chat server <span class="sr-only">(current)</span></a>
 			</li>
 		</ul>
-	</div>
 
-	<?php
-	// display appropriate buttons depending on whether user is logged in or not
-	if (isset($_SESSION['loggedIn'])) {
-		if ($_SESSION['loggedIn']) {
-			echo "<a class='nav-link rounded' href='" . base_url() . "SignOut'>Sign-out (" . $_SESSION['loggedInUsername'] . ") <span class='sr-only'>(current)</span></a>";
-		} else {
-			echo "<a class='nav-link rounded' href='" . base_url() . "SignUp'>Sign-up <span class='sr-only'>(current)</span></a>";
+        <?php
+        // display appropriate buttons depending on whether user is logged in or not
+        if (isset($_SESSION['loggedIn'])) {
+            if ($_SESSION['loggedIn']) {
+                echo "<a class='nav-link rounded' href='" . base_url() . "SignOut'>Sign-out (" . $_SESSION['loggedInUsername'] . ") <span class='sr-only'>(current)</span></a>";
+            } else {
+                echo "<a class='nav-link rounded' href='" . base_url() . "SignUp'>Sign-up <span class='sr-only'>(current)</span></a>";
 
-			echo "<a class='nav-link rounded' href='" . base_url() . "Sign-in'>Sign-in <span class='sr-only'>(current)</span></a>";
-		}
-	} else {
-		echo "<a class='nav-link rounded' href='" . base_url() . "SignUp'>Sign-up <span class='sr-only'>(current)</span></a>";
+                echo "<a class='nav-link rounded' href='" . base_url() . "Sign-in'>Sign-in <span class='sr-only'>(current)</span></a>";
+            }
+        } else {
+            echo "<a class='nav-link rounded' href='" . base_url() . "SignUp'>Sign-up <span class='sr-only'>(current)</span></a>";
 
-		echo "<a class='nav-link rounded' href='" . base_url() . "SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
-	}
-	?>
+            echo "<a class='nav-link rounded' href='" . base_url() . "SignIn'>Sign-in <span class='sr-only'>(current)</span></a>";
+        }
+        ?>
 
-	<!-- display change theme button -->
-	<div id="changeThemeContainer">
-		<button class="btn btn-outline-success my-2 my-sm-0" type="button" name="theme" id="changeThemeButton">Change theme</button>
-	</div>
+        <!-- display change theme button -->
+        <div id="changeThemeContainer">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" name="theme" id="changeThemeButton">Change theme</button>
+        </div>
+
+    </div>
 </nav>
