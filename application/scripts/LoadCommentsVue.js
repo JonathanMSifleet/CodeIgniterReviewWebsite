@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			getComments: function() {
 				$.get("http://localhost:82/games-review/GetComments", function(data) {
 					data.forEach(element => {
-						console.log(element);
 						app.comments.push(element);
 					});
 				})

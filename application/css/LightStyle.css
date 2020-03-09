@@ -113,16 +113,16 @@ html * {
 .commentsContainerOuter {
 	clear: both;
 	float: left;
-	margin: 0% 1% 9vh;
 	background-color: var(--container-dark);
 	width: 98%;
+	margin: 0% 1% 9vh;
 }
 
 .commentsContainerInner {
 	float: left;
-	margin: 0 1% 1%;
+	margin: 1%;
 	background-color: var(--container-light);
-	padding: 1%;
+	padding: 1% 1% 0;
 	width: 98%;
 }
 
@@ -358,15 +358,6 @@ body {
 	padding: 0;
 }
 
-.messageContainerOuter {
-	padding: 0;
-	margin: 0 0 1%;
-	background-color: var(--container-light);
-	display: inline-block;
-	width: 100%;
-	height: auto;
-}
-
 .messageTelemetry {
 	padding: 0.5%;
 	margin: 0 1% 0 0;
@@ -485,6 +476,7 @@ body {
 }
 
 #commentInput {
+	margin-bottom: 1%;
 	height: 10vh;
 }
 
@@ -530,4 +522,13 @@ body {
 	height: 5vh;
 	color: var(--buttonBackground) !important;
 	border-color: var(--buttonBackground) !important;
+}
+
+#vueComments {
+	padding: 0;
+	margin: 0 0 1%;
+	background-color: var(--container-light);
+	display: inline-block;
+	width: 100%;
+	height: auto;
 }
