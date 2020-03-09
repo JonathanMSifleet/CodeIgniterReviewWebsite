@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 				$.post("http://localhost:82/games-review/SetComment", postData)
 					.done(function (postData) {
-						app.comments.push(postData);
+						app.comments.unshift(postData);
 					});
 			},
 			getComments: function() {
