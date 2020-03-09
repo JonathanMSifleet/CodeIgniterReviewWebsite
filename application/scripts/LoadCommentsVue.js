@@ -8,28 +8,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			this.getComments();
 		},
 		methods: {
-			setComment: function () {
+			setComment: function (username) {
 
 				var reviewID = $("#reviewID").val();
 				var timeStamp = $("#timeStamp").val();
 				var comment = $("#commentInput").val();
 
-				var postData = {"reviewID": reviewID, "timeStamp": timeStamp, "comment": comment};
+				var commentData = {"UserName": username, "reviewID": reviewID, "TimeStamp": timeStamp, "UserComment": comment};
 
-				$.post("http://localhost:82/games-review/SetComment", postData)
+				$.post("http://localhost:82/games-review/SetComment", commentData)
 					.done(function (postData) {
-
-						//console.log(postData)
-
-						app.comments.unshift(postData);
+						app.comments.unshift(commentData);
 					});
 			},
 			getComments: function() {
 
 				$.get("http://localhost:82/games-review/GetComments", function(data) {
-					console.log(data);
 
 					data.forEach(element => {
+
+						console.log(element);
+
 						app.comments.push(element);
 					});
 

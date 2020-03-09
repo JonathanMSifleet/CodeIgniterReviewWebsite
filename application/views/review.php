@@ -67,7 +67,6 @@ _END;
 					if (!$_SESSION['loggedIn']) {
 						echo "<p id='notLoggedIn' class='rounded'>You must be logged in to post a comment</p>";
 					} else {
-						$username = $_SESSION['loggedInUsername'];
 						$currentURL = $_SERVER['REQUEST_URI'];
 						$curDate = date("Y-m-d H:i:s", time());
 						// if the user is logged in display comment form
@@ -76,7 +75,7 @@ _END;
                        placeholder="Enter comment">
                 <input type="hidden" name="reviewID" id="reviewID" value="{$_SESSION['reviewID']}">
                 <input type="hidden" name="timeStamp" id="timeStamp" value="$curDate">
-                <button v-on:click="setComment()" id="submitCommentButton" name="submitCommentButton" class="btn btn-primary">Submit</button>
+                <button v-on:click="setComment('{$_SESSION['loggedInUsername']}')" id="submitCommentButton" name="submitCommentButton" class="btn btn-primary">Submit</button>
 _END;
 					}
 				}
@@ -85,7 +84,7 @@ _END;
 			?>
 			<div id="vueComments" class="rounded" v-for="comment in comments">
                 <div class='messageTelemetry rounded'>
-                    <p class="outputTelemetry">{{comment.UserName}} <br> {{comment.TimeStamp}}</p>
+                    <p class="outputTelemetry"> {{comment.UserName}} <br> {{comment.TimeStamp}}</p>
                 </div>
                 <div class='messageContainerInner rounded'>
                     <p class='outputMessage rounded'> {{comment.UserComment}}</p>
