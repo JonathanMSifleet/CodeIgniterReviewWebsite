@@ -18,7 +18,7 @@ class Review_Model extends CI_Model {
 	public function attemptPostComment($postData) {
 
 		// get user ID from database
-		$query = $this->db->query("SELECT UserID FROM users WHERE UserName = '{$postData['username']}' LIMIT 1");
+		$query = $this->db->query("SELECT UserID FROM users WHERE UserName = '{$_SESSION['loggedInUsername']}' LIMIT 1");
 		$result = $query->result();
 
 		$userID = "";
@@ -29,7 +29,7 @@ class Review_Model extends CI_Model {
 		}
 
 		// insert comment into database
-		$query = $this->db->query("INSERT INTO gamescomments (UID, UserID, ReviewID, UserComment, TimeStamp) VALUES(null, '$userID', '{$postData['reviewID']}', '{$postData['comment']}', '{$postData['timeStamp']}')");
+		$query = $this->db->query("INSERT INTO gamescomments (UID, UserID, ReviewID, UserComment, TimeStamp) VALUES(null, '$userID', '{$postData['reviewID']}', '{$postData['UserComment']}', '{$postData['TimeStamp']}')");
 		return;
 
 	}
@@ -37,7 +37,7 @@ class Review_Model extends CI_Model {
 	public function getComments() {
 
 		// fetch comments from database:
-		$query = $this->db->query("SELECT UID, UserComment, TimeStamp, UserName FROM gamescomments INNER JOIN users USING(UserID) WHERE ReviewID = {$_SESSION['reviewID']} ORDER BY TimeStamp ASC;");
+		$query = $this->db->query("SELECT UID, UserComment, TimeStamp, UserName FROM gamescomments INNER JOIN users USING (UserID) WHERE ReviewID = {$_SESSION['reviewID']} ORDER BY TimeStamp DESC;");
 		return $query->result();
 
 	}

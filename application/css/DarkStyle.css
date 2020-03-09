@@ -121,7 +121,7 @@ html * {
 
 .commentsContainerInner {
 	float: left;
-	margin: 0 1% 1%;
+	margin: 1%;
 	background-color: var(--container-dark);
 	padding: 1% 1% 0;
 	width: 98%;
@@ -349,15 +349,6 @@ body {
 	padding: 0;
 }
 
-.messageContainerOuter {
-	padding: 0;
-	margin: 0 0 1%;
-	background-color: var(--container-dark);
-	display: inline-block;
-	width: 100%;
-	height: auto;
-}
-
 .messageTelemetry {
 	padding: 0.5%;
 	margin: 0 1% 0 0;
@@ -475,6 +466,7 @@ body {
 }
 
 #commentInput {
+	margin-bottom: 1%;
 	height: 10vh;
 }
 
@@ -518,4 +510,13 @@ body {
 	padding: 1%;
 	margin: 0;
 	height: 5vh;
+}
+
+#vueComments {
+	padding: 0;
+	margin: 0 0 1%;
+	background-color: var(--container-dark);
+	display: inline-block;
+	width: 100%;
+	height: auto;
 }

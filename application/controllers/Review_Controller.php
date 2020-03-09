@@ -18,32 +18,23 @@ class Review_Controller extends CI_Controller {
 		$this->load->view('template', $data);
 	}
 
-	public function postComment() {
-		// get post data
-		$postData = array(
-			'username' => $this->input->post('username'),
-			'comment' => $this->input->post('commentInput'),
-			'reviewID' => $this->input->post('reviewID'),
-			'timeStamp' => $this->input->post('timeStamp')
-		);
+	public function setComment() {
 
-		// store previous URL
-		$previousLink = $this->input->post('currentURL');
-		$previousLink = substr($previousLink, 13, strlen($previousLink));
+		$comment = $this->input->post();
+
+		print_r($comment);
 
 		// send comment data to review model
-		$this->Review_Model->attemptPostComment($postData);
-
-		// redirect to last URL
-		redirect($previousLink);
+		$this->Review_Model->attemptPostComment($comment);
 
 	}
 
 	public function getComments() {
-		// fetch comments from review model
-		$comments = $this->Review_Model->getComments($_SESSION['reviewID']);
 
-		// echo comments encoded as JSON
+		$comments = $this->Review_Model->getComments();
+
+		header('Content-Type: application/json');
+
 		echo json_encode($comments);
 
 	}
