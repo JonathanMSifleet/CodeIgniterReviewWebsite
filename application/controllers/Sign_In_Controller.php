@@ -8,8 +8,8 @@ class Sign_In_Controller extends CI_Controller {
 		$this->load->helper('url');
 
 		// if the user is already signed in, redirect to home page
-		if (isset($_SESSION['loggedIn'])) {
-			if ($_SESSION['loggedIn']) {
+		if ($this->session->has_userdata('loggedIn')) {
+			if ($this->session->loggedIn) {
 				redirect(base_url());
 			}
 		} else {
@@ -65,14 +65,13 @@ class Sign_In_Controller extends CI_Controller {
 			// verify hash
 			if (password_verify($postData['password'], $userPasswordHash)) {
 				// if hash is verified, log user in and store username in session
-				$_SESSION['loggedIn'] = true;
-				$_SESSION['loggedInUsername'] = $postData['username'];
+				$this->session->set_userdata('loggedIn', true);
+				$this->session->set_userdata('loggedInUsername', $postData['username']);
 				if ($isUserAdmin == 1) {
 					$_SESSION['isAdmin'] = true;
 				} else {
                     $_SESSION['isAdmin'] = false;
                 }
-
 				// redirect to home page:
 				redirect(base_url());
 			} else {

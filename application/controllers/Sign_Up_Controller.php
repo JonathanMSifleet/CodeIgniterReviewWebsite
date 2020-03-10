@@ -8,8 +8,8 @@ class Sign_Up_Controller extends CI_Controller {
 		$this->load->helper('url');
 
 		// if the use is logged in redirect to home page
-		if (isset($_SESSION['loggedIn'])) {
-			if ($_SESSION['loggedIn']) {
+		if ($this->session->has_userdata('loggedIn')) {
+			if ($this->session->loggedIn) {
 				redirect(base_url());
 			}
 		} else {

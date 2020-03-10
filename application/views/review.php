@@ -18,8 +18,8 @@
 		$gameBlurb = $review->GameBlurb;
 		$gameReview = $review->GameReview;
 		$gameImage = $review->ReviewImage;
-		$_SESSION['gameComments'] = $review->GameComments;
-		$_SESSION['reviewID'] = $review->ID;
+		$this->session->set_userdata('gameComments', $review->GameComments);
+		$this->session->set_userdata('reviewID', $review->ID);
 		$imagePath = base_url() . "application/images/" . $gameImage;
 
 		// display jump to comments button
@@ -56,15 +56,15 @@ _END;
         <div id="commentsSection">
 			<?php
 			// if game comments are disabled hide comments div and display appropriate message
-			if ($_SESSION['gameComments'] == 0) {
+			if ($this->session->gameComments == 0) {
 				echo "<h3 id='commentsDisabledMessage' class='rounded'>Comments are disabled for this review </h3>";
 			} else {
 				// if the user is not logged in display appropriate message
-				if (!isset($_SESSION['loggedIn'])) {
+				if (!$this->session->has_userdata('loggedIn')) {
 					echo "<p id='notLoggedIn' class='rounded'>You must be logged in to post a comment</p>";
-				} elseif (isset($_SESSION['loggedIn'])) {
+				} elseif ($this->session->has_userdata('loggedIn')) {
 					// if the user is not logged in display appropriate message
-					if (!$_SESSION['loggedIn']) {
+					if ($this->session->loggedIn) {
 						echo "<p id='notLoggedIn' class='rounded'>You must be logged in to post a comment</p>";
 					} else {
 						$currentURL = $_SERVER['REQUEST_URI'];
@@ -73,7 +73,7 @@ _END;
 						echo <<<_END
                 <input type="text" name="commentInput" class="form-control rounded" id="commentInput"
                        placeholder="Enter comment">
-                <input type="hidden" name="reviewID" id="reviewID" value="{$_SESSION['reviewID']}">
+                <input type="hidden" name="reviewID" id="reviewID" value="{$this->session->reviewID}">
                 <input type="hidden" name="timeStamp" id="timeStamp" value="$curDate">
                 <button v-on:click="setComment('{$_SESSION['loggedInUsername']}', {$_SESSION['isAdmin']})" id="submitCommentButton" name="submitCommentButton" class="btn btn-primary">Submit</button>
 _END;

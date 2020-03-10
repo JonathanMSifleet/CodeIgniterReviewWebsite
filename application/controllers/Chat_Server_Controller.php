@@ -9,10 +9,10 @@ class Chat_Server_Controller extends CI_Controller {
 
 		// when accessing the chat server,
 		// if the user is not signed in redirect to sign in page
-		if (!isset($_SESSION['loggedIn'])) {
+		if (!$this->session->has_userdata('loggedIn')) {
 			redirect(base_url() . "SignIn");
-		} else if (isset($_SESSION['loggedIn'])) {
-			if (!$_SESSION['loggedIn']) {
+		} else if ($this->session->has_userdata('loggedIn')) {
+			if (!$this->session->loggedIn) {
 				redirect(base_url() . "SignIn");
 			}
 		}
