@@ -519,3 +519,7 @@ body {
 	width: 100%;
 	height: auto;
 }
+
+#adminAccount {
+	color: var(--p-text);
+}

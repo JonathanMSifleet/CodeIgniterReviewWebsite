@@ -24,6 +24,9 @@
 				       placeholder="Enter password">
 			</div>
 
+			<input type="checkbox" name="isAdmin">
+			<label id="adminAccount" for="isAdmin" value="1">Admin account</label>
+
 			<?php
 			// if account exists display message
 			if (isset($accountExists)) {

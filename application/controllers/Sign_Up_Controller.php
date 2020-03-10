@@ -30,7 +30,8 @@ class Sign_Up_Controller extends CI_Controller {
 		// get data from sign up form
 		$postData = array(
 			'username' => $this->input->post('usernameInput'),
-			'password' => $this->input->post('passwordInput')
+			'password' => $this->input->post('passwordInput'),
+			'isAdmin' => $this->input->post('isAdmin')
 		);
 
 		// check if account exists
@@ -39,6 +40,15 @@ class Sign_Up_Controller extends CI_Controller {
 		// if no account exists encrypt password
 		if (empty($accountExists)) {
 			$postData['password'] = $this->encryptInput($postData['password']);
+
+			print_r($postData['isAdmin']);
+
+			if($postData['isAdmin'] == "on") {
+				$postData['isAdmin'] = 1;
+			} else {
+				$postData['isAdmin'] = 0;
+			}
+
 			// insert new account into database
 			$this->Sign_Up_Model->createAccount($postData);
 			// redirect to sign in page

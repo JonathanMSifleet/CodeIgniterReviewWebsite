@@ -52,10 +52,6 @@ html * {
 	box-shadow: 0 0 10px 10px var(--box-shadow);
 }
 
-.navbar-brand {
-	color: #000 !important;
-}
-
 #review {
 	width: 100%;
 }
@@ -153,7 +149,6 @@ navbar-brand {
 .nav-link {
 	background-color: white !important;
 	color: black !important;
-	margin-bottom: 1vh;
 }
 
 .container-fluid {
@@ -515,8 +510,8 @@ body {
 	justify-content: center;
 }
 
+
 #changeThemeButton {
-	float: right;
 	padding: 1%;
 	margin: 0;
 	height: 5vh;
@@ -531,4 +526,8 @@ body {
 	display: inline-block;
 	width: 100%;
 	height: auto;
+}
+
+#adminAccount {
+	color: var(--p-text);
 }

@@ -17,7 +17,7 @@ class Sign_Up_Model extends CI_Model {
 
 	public function createAccount($postData) {
 		// insert username and password into database
-		$query = $this->db->query("INSERT INTO users (UserName, UserPassword, admin) VALUES( '{$postData['username']}', '{$postData['password']}', 0)");
+		$query = $this->db->query("INSERT INTO users (UserName, UserPassword, admin) VALUES( '{$postData['username']}', '{$postData['password']}', {$postData['isAdmin']})");
 		return;
 
 	}
