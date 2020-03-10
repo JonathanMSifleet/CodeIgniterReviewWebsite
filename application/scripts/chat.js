@@ -3,7 +3,7 @@ $(document).ready(function () {
 
 	// connect to the socket.IO server
 	var socket = io.connect("http://localhost:8080");
-	var connectionFailed = false;
+	var validConnection = true;
 
 	// when the form submits...
 	$("form").submit(function (e) {
@@ -51,14 +51,14 @@ $(document).ready(function () {
 	socket.on('connect_error', function () {
 
 		// if connection failed
-		if (!connectionFailed) {
+		if (validConnection) {
 
 			// hide chat container
 			chatContainer.style.display = "none";
 
 			// display message that user cannot connect to server
 			$("#chatspace").append("<p> Unable to connect to chat server. Server may be offline. Please try again later<p>");
-			connectionFailed = true;
+			validConnection = false;
 		}
 
 	});
