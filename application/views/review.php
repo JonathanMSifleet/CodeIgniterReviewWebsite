@@ -64,7 +64,7 @@ _END;
 					echo "<p id='notLoggedIn' class='rounded'>You must be logged in to post a comment</p>";
 				} elseif ($this->session->has_userdata('loggedIn')) {
 					// if the user is not logged in display appropriate message
-					if ($this->session->loggedIn) {
+					if (!$this->session->loggedIn) {
 						echo "<p id='notLoggedIn' class='rounded'>You must be logged in to post a comment</p>";
 					} else {
 						$currentURL = $_SERVER['REQUEST_URI'];
