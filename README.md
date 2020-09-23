@@ -1,3 +1,5 @@
+University coursework. Grade: 98%
+
 *******************
 Server Requirements
 *******************
